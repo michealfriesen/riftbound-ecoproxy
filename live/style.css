@@ -277,19 +277,14 @@ html, body {
     box-shadow: none !important;
   }
 
-  /* Stretch the image's outermost pixels through the bleed without scaling the card face */
+  /* Fill the entire card with a bleed layer so print rasterization cannot expose white seams */
   .card .card-img-bleed {
     position: absolute !important;
-    inset: -0.1mm auto auto -0.1mm !important;
-    width: 63.2mm !important;
-    height: 88.2mm !important;
-    box-sizing: content-box !important;
-    object-fit: cover !important;
-    border-width: var(--print-bleed, 2mm) !important;
-    border-style: solid !important;
-    border-color: transparent !important;
-    border-image-slice: 1 !important;
-    border-image-repeat: stretch !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: fill !important;
+    border: 0 !important;
     transform: none !important;
     filter: none !important;
     z-index: 0 !important;
