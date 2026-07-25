@@ -199,6 +199,20 @@ describe('deriveCollectorNumber', () => {
     assert.equal(deriveCollectorNumber(null, 'OGN-117a'), 117);
   });
 
+  it('derives collector numbers from token and rune card codes', () => {
+    assert.equal(deriveCollectorNumber(null, 'SFD-t03'), 3);
+    assert.equal(deriveCollectorNumber(null, 'VEN-r01'), 1);
+  });
+
+  it('derives collector numbers from special-promo card codes', () => {
+    assert.equal(deriveCollectorNumber(null, 'VEN-sp1-006'), 1);
+    assert.equal(deriveCollectorNumber(null, 'VEN-sp6-006'), 6);
+  });
+
+  it('derives the leading collector number from star card codes', () => {
+    assert.equal(deriveCollectorNumber(null, 'SFD-223-star-221'), 223);
+  });
+
   it('returns null for invalid inputs', () => {
     assert.equal(deriveCollectorNumber(null, null), null);
     assert.equal(deriveCollectorNumber(null, 'BADCODE'), null);
@@ -336,6 +350,21 @@ describe('transformRecord', () => {
     const card = transformRecord({ ...minimalRow, cardCode: 'sp2-006', cardNumber: 6 });
     assert.equal(card.variantNumber, 'SP2-006');
     assert.equal(card.collectorNumber, 6);
+  });
+
+  it('transforms token, rune, special-promo, and star source identifiers', () => {
+    const fixtures = [
+      ['sfd-t03', 't03', 'SFD-t03', 3],
+      ['ven-r01', 'r01', 'VEN-r01', 1],
+      ['ven-sp1-006', 'sp1-006', 'VEN-sp1-006', 1],
+      ['unl-226-star-219', '226-star-219', 'UNL-226-star-219', 226],
+    ];
+
+    for (const [cardCode, cardNumber, variantNumber, collectorNumber] of fixtures) {
+      const card = transformRecord({ ...minimalRow, cardCode, cardNumber });
+      assert.equal(card.variantNumber, variantNumber);
+      assert.equal(card.collectorNumber, collectorNumber);
+    }
   });
 
   it('derives collectorNumber from cardCode when cardNumber absent', () => {

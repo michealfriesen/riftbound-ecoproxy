@@ -158,6 +158,9 @@ export function deriveVariantNumber(cardCode) {
  *   (null, "OGN-056")  → 56
  *   (3, "OGN-056")     → 3
  *   (null, "OGN-117a") → 117
+ *   (null, "UNL-t03")  → 3
+ *   (null, "VEN-r01")  → 1
+ *   (null, "VEN-sp1-006") → 1
  *
  * @param {number|null|undefined} sourceNumber  Source `cardNumber` value.
  * @param {string|null|undefined} cardCode      Source `cardCode` value.
@@ -172,9 +175,9 @@ export function deriveCollectorNumber(sourceNumber, cardCode) {
   const dashIdx = str.indexOf('-');
   if (dashIdx < 1) return null;
   const rest = str.slice(dashIdx + 1);
-  const match = rest.match(/^(\d+)/);
+  const match = rest.match(/^(?:[tr](\d+)|sp(\d+)-\d+|(\d+))/);
   if (!match) return null;
-  const n = parseInt(match[1], 10);
+  const n = parseInt(match[1] ?? match[2] ?? match[3], 10);
   return n >= 1 ? n : null;
 }
 
