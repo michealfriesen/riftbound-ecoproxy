@@ -52,7 +52,8 @@ window.addEventListener('beforeprint', () => {
  */
 function applyProxyView() {
   container.querySelectorAll('.card').forEach(card => {
-    const img    = card.querySelector('.card-img');
+    // Select both the bleed layer and the main face image.
+    const imgs   = card.querySelectorAll('.card-img');
     const hover  = card.querySelector('.hover-bar');
     const badge  = card.querySelector('.qty-badge');
     const built  = Array.from(card.children)
@@ -61,13 +62,13 @@ function applyProxyView() {
                                    && !el.classList.contains('qty-badge'));
 
     if (window.fullProxy) {
-      img.classList.remove('hidden');
+      imgs.forEach(img => img.classList.remove('hidden'));
       // keep hover & badge shown
       hover && hover.classList.remove('hidden');
       badge && badge.classList.remove('hidden');
       built.forEach(el => el.classList.add('hidden'));
     } else {
-      img.classList.add('hidden');
+      imgs.forEach(img => img.classList.add('hidden'));
       built.forEach(el => el.classList.remove('hidden'));
       // hover & badge will show on hover via CSS
     }
@@ -142,9 +143,17 @@ function applyProxyView() {
     wrapper.className = 'card';
     wrapper.setAttribute('data-variant', id);
 
-    // Full-art image element
+    // Synthetic bleed layer: same image, enlarged and blurred, rendered behind the main face.
+    // Fills the 2 mm bleed area outside the 63 mm × 88 mm trim boundary during print.
+    const bleedImg = document.createElement('img');
+    bleedImg.className = 'card-img card-img-bleed hidden';
+    bleedImg.src = fullArtUrl;
+    bleedImg.alt = '';
+    wrapper.appendChild(bleedImg);
+
+    // Main full-art image element, aligned to the 63 mm × 88 mm trim area.
     const img = document.createElement('img');
-    img.className = 'card-img hidden';
+    img.className = 'card-img card-img-main hidden';
     img.src = fullArtUrl;
     img.dataset.fullArt = fullArtUrl;
     wrapper.appendChild(img);
