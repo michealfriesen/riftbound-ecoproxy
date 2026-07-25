@@ -26,9 +26,9 @@
         "additionalProperties": false,
         "properties": {
           "variantNumber": {
-            "description": "Globally unique card identifier, e.g. OGN-001 or OGN-117a.",
+            "description": "Globally unique card identifier, e.g. OGN-001, OGN-117a, UNL-t01, or SFD-223-star-221.",
             "type": "string",
-            "pattern": "^[A-Z0-9]+-[0-9]+[a-z]?(?:-[0-9]+)?$"
+            "pattern": "^[A-Z0-9]+-(?:[0-9]+[a-z]?(?:-[0-9]+)?|[tr][0-9]+|sp[0-9]+-[0-9]+|[0-9]+-star-[0-9]+)$"
           },
           "collectorNumber": {
             "description": "Numeric position within the set.",

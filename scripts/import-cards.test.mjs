@@ -131,6 +131,22 @@ describe('deriveVariantNumber', () => {
     assert.equal(deriveVariantNumber('OGN-001-2'), 'OGN-001-2');
   });
 
+  it('handles token and rune card codes', () => {
+    assert.equal(deriveVariantNumber('sfd-t03'), 'SFD-t03');
+    assert.equal(deriveVariantNumber('unl-t01'), 'UNL-t01');
+    assert.equal(deriveVariantNumber('ven-r01'), 'VEN-r01');
+  });
+
+  it('handles special-promo card codes', () => {
+    assert.equal(deriveVariantNumber('ven-sp1-006'), 'VEN-sp1-006');
+    assert.equal(deriveVariantNumber('ven-sp6-006'), 'VEN-sp6-006');
+  });
+
+  it('handles star card codes', () => {
+    assert.equal(deriveVariantNumber('sfd-223-star-221'), 'SFD-223-star-221');
+    assert.equal(deriveVariantNumber('unl-237-star-219'), 'UNL-237-star-219');
+  });
+
   it('returns null for null/undefined', () => {
     assert.equal(deriveVariantNumber(null), null);
     assert.equal(deriveVariantNumber(undefined), null);
@@ -152,6 +168,12 @@ describe('deriveVariantNumber', () => {
   it('returns null when number part is missing', () => {
     assert.equal(deriveVariantNumber('OGS-'), null);
     assert.equal(deriveVariantNumber('OGS-abc'), null);
+  });
+
+  it('returns null for malformed special card codes', () => {
+    assert.equal(deriveVariantNumber('UNL-t'), null);
+    assert.equal(deriveVariantNumber('VEN-sp1'), null);
+    assert.equal(deriveVariantNumber('SFD-223-star'), null);
   });
 });
 

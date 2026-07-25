@@ -62,7 +62,8 @@ set file must look like. It is not card data. The actual card records live in
 
 ### variantNumber
 
-`variantNumber` (e.g. `OGN-001`) is the globally unique identifier for each card variant.
+`variantNumber` (e.g. `OGN-001`, `UNL-t01`, or `SFD-223-star-221`) is the globally unique
+identifier for each card variant.
 It is used as the localStorage key for deck counts and as the URL `?id=` parameter.
 Existing saved lists remain compatible as long as the identifier does not change.
 
@@ -145,7 +146,7 @@ Card data originates from Riot's official Riftbound Card Gallery via the
 
 | Source field | Schema field | Notes |
 |---|---|---|
-| `cardCode` | `variantNumber` | Set code uppercased; e.g. `ogs-001` → `OGS-001` |
+| `cardCode` | `variantNumber` | Set code uppercased; the source suffix is preserved (e.g. `ogs-001` → `OGS-001`, `unl-t01` → `UNL-t01`) |
 | `cardNumber` | `collectorNumber` | Falls back to numeric part of `cardCode` |
 | `fullName` / `name` | `name` | |
 | `cardType` / `type` | `type` | Lowercased and validated against schema enum |
