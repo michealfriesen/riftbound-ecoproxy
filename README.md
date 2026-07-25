@@ -55,7 +55,7 @@ set file must look like. It is not card data. The actual card records live in
 
 `variantNumber` (e.g. `OGN-001`) is the globally unique identifier for each card variant.
 It is used as the localStorage key for deck counts and as the URL `?id=` parameter.
-Existing saved lists remain compatible after the migration because the identifier has not changed.
+Existing saved lists remain compatible as long as the identifier does not change.
 
 ---
 
