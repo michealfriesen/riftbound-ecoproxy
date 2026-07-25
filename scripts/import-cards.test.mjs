@@ -245,6 +245,36 @@ describe('transformRecord', () => {
     assert.equal(card.type, 'legend');
   });
 
+  it('combines separate title and name fields', () => {
+    const card = transformRecord({
+      cardCode: 'OGS-002',
+      title: 'Shen',
+      name: 'Eye of Twilight',
+      cardType: 'legend',
+      cardNumber: 2,
+    });
+    assert.equal(card.name, 'Shen, Eye of Twilight');
+  });
+
+  it('prefers fullName over separate title and name fields', () => {
+    const card = transformRecord({
+      ...minimalRow,
+      title: 'Incorrect',
+      name: 'Fallback',
+    });
+    assert.equal(card.name, 'Annie, Fiery');
+  });
+
+  it('uses title when no other name field is present', () => {
+    const card = transformRecord({
+      cardCode: 'OGS-002',
+      title: 'Standalone Title',
+      cardType: 'unit',
+      cardNumber: 2,
+    });
+    assert.equal(card.name, 'Standalone Title');
+  });
+
   it('includes energy, power, might when present', () => {
     const card = transformRecord({
       ...minimalRow,

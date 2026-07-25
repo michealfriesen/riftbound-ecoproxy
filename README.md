@@ -148,7 +148,7 @@ Card data originates from Riot's official Riftbound Card Gallery via the
 |---|---|---|
 | `cardCode` | `variantNumber` | Set code uppercased; the source suffix is preserved (e.g. `ogs-001` → `OGS-001`, `unl-t01` → `UNL-t01`) |
 | `cardNumber` | `collectorNumber` | Falls back to numeric part of `cardCode` |
-| `fullName` / `name` | `name` | |
+| `fullName` / `title` + `name` | `name` | Prefers `fullName`; otherwise joins separate title and name fields |
 | `cardType` / `type` | `type` | Lowercased and validated against schema enum |
 | `energy` | `energy` | |
 | `power` | `power` | |

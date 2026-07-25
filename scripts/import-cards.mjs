@@ -203,7 +203,7 @@ function pick(obj, ...keys) {
  * Expected source fields (all optional unless noted):
  *   cardCode       (required) – identifier, e.g. "OGS-001"
  *   cardNumber     – explicit collector number (integer)
- *   fullName / name – card name (required)
+ *   fullName / title + name – card name (required)
  *   cardType / type – card type string (required)
  *   energy         – energy cost integer
  *   power          – power integer
@@ -232,7 +232,15 @@ export function transformRecord(row) {
     );
   }
 
-  const rawName = pick(row, 'fullName', 'name', 'cardName', 'full_name');
+  const rawFullName = pick(row, 'fullName', 'full_name');
+  const rawTitle = pick(row, 'title');
+  const rawCardName = pick(row, 'name', 'cardName');
+  const combinedName = [rawTitle, rawCardName]
+    .filter(value => value != null && String(value).trim() !== '')
+    .map(value => String(value).trim())
+    .join(', ');
+  const rawName =
+    rawFullName != null && String(rawFullName).trim() !== '' ? rawFullName : combinedName;
   if (rawName == null || String(rawName).trim() === '') {
     throw new Error(`[${cardCode}] Missing required field: name`);
   }
