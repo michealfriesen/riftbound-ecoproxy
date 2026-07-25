@@ -232,12 +232,13 @@ html, body {
 }
 
 @media print {
+  @page {
+    margin: 0;
+  }
+
   /* ── Container tweaks ───────────────────────────────────────────── */
-  #container.print-layout {
-    /* remove the 101% width hack */
-    transform: scale(0.99);
-    transform-origin: top left;
-    width: 100% !important;    /* fill the printable area */
+  #card-container.print-layout {
+    width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
   }
@@ -249,9 +250,9 @@ padding-top: 0px !important;
   /* Trim: 63 mm × 88 mm with configurable bleed and spacing */
   #card-container.layout-horizontal {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, var(--print-card-width, 67mm)) !important;
+    grid-template-columns: repeat(3, var(--print-card-width, 67mm)) !important;
     grid-auto-rows: var(--print-card-height, 92mm) !important;
-    gap: var(--print-spacing, 2mm) !important;
+    gap: var(--print-spacing, 0mm) !important;
 
     /* Center the whole grid block horizontally */
     justify-content: center !important;
