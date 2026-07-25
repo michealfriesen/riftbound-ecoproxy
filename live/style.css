@@ -280,9 +280,9 @@ html, body {
   /* Stretch the image's outermost pixels through the bleed without scaling the card face */
   .card .card-img-bleed {
     position: absolute !important;
-    inset: 0 !important;
-    width: 63mm !important;
-    height: 88mm !important;
+    inset: -0.1mm auto auto -0.1mm !important;
+    width: 63.2mm !important;
+    height: 88.2mm !important;
     box-sizing: content-box !important;
     object-fit: cover !important;
     border-width: var(--print-bleed, 2mm) !important;
@@ -298,10 +298,10 @@ html, body {
   /* Main card face remains trim size and is inset by the configured bleed */
   .card .card-img-main {
     position: absolute !important;
-    top: var(--print-bleed, 2mm) !important;
-    left: var(--print-bleed, 2mm) !important;
-    width: 63mm !important;
-    height: 88mm !important;
+    top: calc(var(--print-bleed, 2mm) - 0.1mm) !important;
+    left: calc(var(--print-bleed, 2mm) - 0.1mm) !important;
+    width: 63.2mm !important;
+    height: 88.2mm !important;
     object-fit: cover !important;
     transform: none !important;
     filter: none !important;
