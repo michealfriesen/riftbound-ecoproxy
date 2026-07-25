@@ -24,37 +24,56 @@ const reportType    = document.getElementById('report-type');
 const issueFields   = document.getElementById('issue-fields');
 const featureFields = document.getElementById('feature-fields');
 
-  
-  // ── Close all modals & trigger print ────────────────────────────────────
 const printBtn = document.getElementById('btn-print');
+const printSettingsModal = document.getElementById('print-settings-modal');
+const printSettingsForm = document.getElementById('print-settings-form');
+const printBleed = document.getElementById('print-bleed');
+const printSpacing = document.getElementById('print-spacing');
+
+function closePrintSettings() {
+  printSettingsModal.classList.add('hidden');
+}
+
 if (printBtn) {
   printBtn.addEventListener('click', () => {
-    // 1. Close all open modals
-    document.querySelectorAll('.modal-overlay').forEach(m => m.classList.add('hidden'));
-
-    // 2. Hide top bar and main modal
-    const topBar = document.getElementById('top-bar');
-    if (topBar) topBar.style.display = 'none';
-    if (typeof modal !== 'undefined') modal.classList.add('hidden');
-
-    // 3. Apply print-specific layout
-    if (typeof container !== 'undefined') container.classList.add('print-layout');
-    applyProxyView();
-
-    // 4. Trigger the print dialog
-    window.print();
-
-    // 5. Restore original UI after print (or cancel)
-    setTimeout(() => {
-      if (topBar) topBar.style.display = '';
-      if (typeof container !== 'undefined') container.classList.remove('print-layout');
-      applyProxyView();
-    }, 0);
+    printSettingsModal.classList.remove('hidden');
+    printBleed.focus();
   });
 }
 
+document.getElementById('close-print-settings').addEventListener('click', closePrintSettings);
+document.getElementById('cancel-print-settings').addEventListener('click', closePrintSettings);
+printSettingsModal.addEventListener('click', event => {
+  if (event.target === printSettingsModal) closePrintSettings();
+});
+
+printSettingsForm.addEventListener('submit', event => {
+    event.preventDefault();
+    const bleed = printBleed.valueAsNumber;
+    const spacing = printSpacing.valueAsNumber;
+    const rootStyle = document.documentElement.style;
+    rootStyle.setProperty('--print-bleed', `${bleed}mm`);
+    rootStyle.setProperty('--print-spacing', `${spacing}mm`);
+    rootStyle.setProperty('--print-card-width', `${63 + (bleed * 2)}mm`);
+    rootStyle.setProperty('--print-card-height', `${88 + (bleed * 2)}mm`);
+
+    closePrintSettings();
+    const topBar = document.getElementById('top-bar');
+    topBar.style.display = 'none';
+    modal.classList.add('hidden');
+    container.classList.add('print-layout');
+    applyProxyView();
+    window.print();
+
+    setTimeout(() => {
+      topBar.style.display = '';
+      container.classList.remove('print-layout');
+      applyProxyView();
+    }, 0);
+  });
+
 window.addEventListener('beforeprint', () => {
-  document.querySelectorAll('.modal-overlay').forEach(m => m.classList.add('hidden'));
+  document.querySelectorAll('.modal-overlay').forEach(overlay => overlay.classList.add('hidden'));
 });
   
   window.cardCounts = {};
