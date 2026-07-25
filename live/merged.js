@@ -23,7 +23,6 @@ const reportForm    = document.getElementById('report-form');
 const reportType    = document.getElementById('report-type');
 const issueFields   = document.getElementById('issue-fields');
 const featureFields = document.getElementById('feature-fields');
-
 const printBtn = document.getElementById('btn-print');
 const printSettingsModal = document.getElementById('print-settings-modal');
 const printSettingsForm = document.getElementById('print-settings-form');
@@ -444,7 +443,6 @@ function applyProxyView() {
       overlay.remove();
     };
   });
-
 
   // ── Toggle Full Proxy ────────────────────────────────────────────────
 fullProxyBtn.addEventListener('click', () => {
