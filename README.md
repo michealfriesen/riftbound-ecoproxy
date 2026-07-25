@@ -24,13 +24,17 @@ Generate the combined card catalog (required before opening the page):
 npm run build
 ```
 
-Then start a local web server from the repository root:
+Then start a local web server:
 
 ```sh
-python3 -m http.server 8000
+npm start
 ```
 
 Open [http://localhost:8000](http://localhost:8000) in a browser. Stop the server with `Ctrl+C`.
+
+If you see a directory listing containing only `card.schema.json`, `cards.json`, and
+`sets/`, the server was started from the `data/` directory. Stop it and run `npm start`
+from the repository root instead.
 
 > **Note:** The page fetches `./data/cards.json` at runtime. That file must exist before
 > you open the page. Run `npm run build` to generate it.
