@@ -6,7 +6,9 @@
   "scripts": {
     "validate": "node scripts/validate-cards.mjs",
     "build": "node scripts/build-cards.mjs",
-    "prebuild": "node scripts/validate-cards.mjs"
+    "prebuild": "node scripts/validate-cards.mjs",
+    "import": "node scripts/import-cards.mjs",
+    "test": "node --test scripts/import-cards.test.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
