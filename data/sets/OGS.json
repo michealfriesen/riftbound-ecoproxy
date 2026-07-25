@@ -1,0 +1,416 @@
+{
+  "code": "OGS",
+  "name": "Origins – Proving Grounds",
+  "cards": [
+    {
+      "variantNumber": "OGS-001",
+      "collectorNumber": 1,
+      "name": "Annie, Fiery",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Annie",
+        "Noxus"
+      ],
+      "description": "Your spells and abilities deal 1 Bonus Damage. (Each instance of damage they deal is increased by 1.)",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-001.webp"
+    },
+    {
+      "variantNumber": "OGS-002",
+      "collectorNumber": 2,
+      "name": "Firestorm",
+      "type": "spell",
+      "energy": 6,
+      "power": 1,
+      "might": 0,
+      "colors": [
+        "Fury"
+      ],
+      "description": "Deal 3 to all enemy units at a battlefield.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-002.webp"
+    },
+    {
+      "variantNumber": "OGS-003",
+      "collectorNumber": 3,
+      "name": "Incinerate",
+      "type": "spell",
+      "energy": 2,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Fury"
+      ],
+      "description": "[ACTION] (play on your turn or in showdowns.) \nDeal 2 to a unit at a battlefield.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-003.webp"
+    },
+    {
+      "variantNumber": "OGS-004",
+      "collectorNumber": 4,
+      "name": "Master Yi, Meditative",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Master Yi",
+        "Ionia"
+      ],
+      "description": "While you have 8+ runes, I have +4 [Might].",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-004.webp"
+    },
+    {
+      "variantNumber": "OGS-005",
+      "collectorNumber": 5,
+      "name": "Zephyr Sage",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 6,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Bird",
+        "Ionia"
+      ],
+      "description": "[SHIELD] (+1 [Might] while I'm a defender.)",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-005.webp"
+    },
+    {
+      "variantNumber": "OGS-006",
+      "collectorNumber": 6,
+      "name": "Lux, Illuminated",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Lux",
+        "Demacia"
+      ],
+      "description": "When you play a spell that costs [5] or more, give me +3 [Might] this turn.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-006.webp"
+    },
+    {
+      "variantNumber": "OGS-007",
+      "collectorNumber": 7,
+      "name": "Garen, Rugged",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Garen",
+        "Elite",
+        "Demacia"
+      ],
+      "description": "[Assault 2], [Shield 2] (+2 [Might] while I'm an attacker or defender.)",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-007.webp"
+    },
+    {
+      "variantNumber": "OGS-008",
+      "collectorNumber": 8,
+      "name": "Gentlemen's Duel",
+      "type": "spell",
+      "energy": 6,
+      "power": 1,
+      "might": 0,
+      "colors": [
+        "Body"
+      ],
+      "description": "[Action] (Play on your turn or in showdowns.)\nGive a friendly unit +3 [Might] this turn. Then, choose an enemy unit. They deal damage equal to their Mights to each other.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-008.webp"
+    },
+    {
+      "variantNumber": "OGS-009",
+      "collectorNumber": 9,
+      "name": "Master Yi, Honed",
+      "type": "unit",
+      "energy": 7,
+      "power": 1,
+      "might": 6,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Master Yi",
+        "Ionia"
+      ],
+      "description": "[GANKING] (I can move from battlefield to battlefield.)\nI enter ready.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-009.webp"
+    },
+    {
+      "variantNumber": "OGS-010",
+      "collectorNumber": 10,
+      "name": "Annie, Stubborn",
+      "type": "unit",
+      "energy": 4,
+      "power": 1,
+      "might": 3,
+      "colors": [
+        "Chaos"
+      ],
+      "tags": [
+        "Annie",
+        "Noxus"
+      ],
+      "description": "When you play me, return a spell from your trash to your hand.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-010.webp"
+    },
+    {
+      "variantNumber": "OGS-011",
+      "collectorNumber": 11,
+      "name": "Flash",
+      "type": "spell",
+      "energy": 2,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Chaos"
+      ],
+      "description": "[REACTION] (Play at any time, even before spells and abilities resolve.)\nMove up to 2 friendly units to base.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-011.webp"
+    },
+    {
+      "variantNumber": "OGS-012",
+      "collectorNumber": 12,
+      "name": "Blast of Power",
+      "type": "spell",
+      "energy": 6,
+      "power": 1,
+      "might": 0,
+      "colors": [
+        "Order"
+      ],
+      "description": "[ACTION] (Play on your turn or in showdowns.)\nKill a unit at a battlefield.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-012.webp"
+    },
+    {
+      "variantNumber": "OGS-013",
+      "collectorNumber": 13,
+      "name": "Garen, Commander",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Order"
+      ],
+      "tags": [
+        "Garen",
+        "Elite",
+        "Demacia"
+      ],
+      "description": "Other friendly units have +1 [Might] here.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-013.webp"
+    },
+    {
+      "variantNumber": "OGS-014",
+      "collectorNumber": 14,
+      "name": "Lux, Crownguard",
+      "type": "unit",
+      "energy": 4,
+      "power": 0,
+      "might": 2,
+      "colors": [
+        "Order"
+      ],
+      "tags": [
+        "Lux",
+        "Demacia"
+      ],
+      "description": "[Tap]: [REACTION] - [ADD] [2] Use only to play spells. (Abilities that add resources can't be reacted to.)",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-014.webp"
+    },
+    {
+      "variantNumber": "OGS-015",
+      "collectorNumber": 15,
+      "name": "Recruit the Vanguard",
+      "type": "spell",
+      "energy": 6,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Order"
+      ],
+      "description": "[ACTION] (Play on your turn or in showdowns.)\nPlay four 1 [Might] Recruit unit tokens. (They can be played to your base or to battlefields you control.)",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-015.webp"
+    },
+    {
+      "variantNumber": "OGS-016",
+      "collectorNumber": 16,
+      "name": "Vanguard Attendant",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Order"
+      ],
+      "tags": [
+        "Demacia",
+        "Elite"
+      ],
+      "description": "I enter ready.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-016.webp"
+    },
+    {
+      "variantNumber": "OGS-017",
+      "collectorNumber": 17,
+      "name": "Annie, Dark Child",
+      "type": "legend",
+      "energy": 0,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Fury",
+        "Chaos"
+      ],
+      "tags": [
+        "Annie"
+      ],
+      "description": "At the end of your turn, ready 2 runes.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-017.webp"
+    },
+    {
+      "variantNumber": "OGS-018",
+      "collectorNumber": 18,
+      "name": "Tibbers",
+      "type": "unit",
+      "energy": 8,
+      "power": 2,
+      "might": 7,
+      "colors": [
+        "Fury",
+        "Chaos"
+      ],
+      "tags": [
+        "Annie"
+      ],
+      "description": "When you play me, deal 3 damage to all units at battlefields.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-018.webp"
+    },
+    {
+      "variantNumber": "OGS-019",
+      "collectorNumber": 19,
+      "name": "Master Yi, Wuju Bladesman",
+      "type": "legend",
+      "energy": 0,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Body",
+        "Calm"
+      ],
+      "tags": [
+        "Master Yi"
+      ],
+      "description": "While a friendly unit defends alone, it gets +2 [Might].",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-019.webp"
+    },
+    {
+      "variantNumber": "OGS-020",
+      "collectorNumber": 20,
+      "name": "Highlander",
+      "type": "spell",
+      "energy": 4,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Body",
+        "Calm"
+      ],
+      "tags": [
+        "Master Yi"
+      ],
+      "description": "[REACTION] (Play any time, even before spells and abilities resolve.)\nChoose a friendly unit. The next time it dies this turn, recall it exhausted instead (Send it to base. This isn't a move.)",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-020.webp"
+    },
+    {
+      "variantNumber": "OGS-021",
+      "collectorNumber": 21,
+      "name": "Lux, Lady of Luminosity",
+      "type": "legend",
+      "energy": 0,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Order",
+        "Mind"
+      ],
+      "tags": [
+        "Lux"
+      ],
+      "description": "When you play a spell that costs [5] or more, draw a 1.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-021.webp"
+    },
+    {
+      "variantNumber": "OGS-022",
+      "collectorNumber": 22,
+      "name": "Final Spark",
+      "type": "spell",
+      "energy": 8,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Order",
+        "Mind"
+      ],
+      "tags": [
+        "Lux"
+      ],
+      "description": "[ACTION] (Play on your turn or in showdowns.)\nDeal 8 to a unit.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-022.webp"
+    },
+    {
+      "variantNumber": "OGS-023",
+      "collectorNumber": 23,
+      "name": "Garen, Might of Demacia",
+      "type": "legend",
+      "energy": 0,
+      "power": 0,
+      "might": 0,
+      "colors": [
+        "Body",
+        "Order"
+      ],
+      "tags": [
+        "Garen"
+      ],
+      "description": "When you conquer, if you have 4+ units at that battlefield, draw 2.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-023.webp"
+    },
+    {
+      "variantNumber": "OGS-024",
+      "collectorNumber": 24,
+      "name": "Decisive Strike",
+      "type": "spell",
+      "energy": 5,
+      "power": 1,
+      "might": 0,
+      "colors": [
+        "Body",
+        "Order"
+      ],
+      "tags": [
+        "Garen"
+      ],
+      "description": "[ACTION] (Play on your turn or in showdowns.)\nGive friendly units +2 [Might] this turn.",
+      "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGS-024.webp"
+    }
+  ]
+}
