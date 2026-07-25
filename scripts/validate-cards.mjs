@@ -52,7 +52,7 @@ try {
 
 if (setFiles.length === 0) {
   console.error(`No set files found in ${SETS_DIR}.`);
-  console.error('Run `npm run export-sheet` to export the current Google Sheet, or add a set JSON manually.');
+  console.error('Add a set JSON file, then try again.');
   process.exit(1);
 }
 

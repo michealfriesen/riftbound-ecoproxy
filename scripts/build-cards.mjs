@@ -44,7 +44,7 @@ try {
 
 if (setFiles.length === 0) {
   console.error(`No set files found in ${SETS_DIR}.`);
-  console.error('Run `npm run export-sheet` to populate OGN.json, then try again.');
+  console.error('Add a set JSON file, then try again.');
   process.exit(1);
 }
 
@@ -75,8 +75,7 @@ allCards.sort((a, b) => a.variantNumber.localeCompare(b.variantNumber));
 if (allCards.length === 0) {
   console.error(
     '\nNo cards found in any set file.\n' +
-    'Run `npm run export-sheet` to populate OGN.json with the current Google Sheet data,\n' +
-    'then run `npm run build` again.'
+    'Add cards to a set JSON file, then run `npm run build` again.'
   );
   process.exit(1);
 }
