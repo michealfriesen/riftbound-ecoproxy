@@ -41,7 +41,6 @@ data/
     OGN.json            ← Original set (Origins)
     <SET>.json          ← Future sets go here
 scripts/
-  export-sheet.mjs      ← One-time export from the Google Sheet
   validate-cards.mjs    ← Validates all set files + checks duplicate variantNumbers
   build-cards.mjs       ← Combines sets → data/cards.json (and live/data/cards.json)
 ```
@@ -56,31 +55,7 @@ set file must look like. It is not card data. The actual card records live in
 
 `variantNumber` (e.g. `OGN-001`) is the globally unique identifier for each card variant.
 It is used as the localStorage key for deck counts and as the URL `?id=` parameter.
-Existing saved lists remain compatible after the migration because the identifier has not changed.
-
----
-
-## Exporting the existing Google Sheet
-
-The original card data lives in a Google Sheet served by a Google Apps Script endpoint.
-If you have network access to that endpoint, run:
-
-```sh
-npm run export-sheet
-```
-
-This fetches all rows, normalises them into the canonical schema format (arrays for
-`colors` and `tags`, integer coercions, etc.) and writes `data/sets/OGN.json`.
-
-If the export script cannot reach the endpoint (blocked network, retired URL, etc.) you
-can export manually:
-
-1. Open the Google Sheet.
-2. **File → Download → Comma-separated values (.csv)**.
-3. Map the columns to the fields in `data/card.schema.json` and populate `data/sets/OGN.json`
-   following the structure shown in that file.
-4. Run `npm run validate` to confirm the file is correct.
-5. Run `npm run build` to regenerate `data/cards.json`.
+Existing saved lists remain compatible as long as the identifier does not change.
 
 ---
 
@@ -134,7 +109,6 @@ can export manually:
 |---------|-------------|
 | `npm run validate` | Validate every `data/sets/*.json` against the schema; report duplicate `variantNumber`s |
 | `npm run build` | Validate then combine all sets into `data/cards.json` and `live/data/cards.json` |
-| `npm run export-sheet` | Export the Google Sheet to `data/sets/OGN.json` |
 
 `npm run build` runs `validate` automatically before generating output, so the build fails
 loudly when any set file is invalid or IDs are duplicated.
@@ -157,4 +131,3 @@ If you are deploying from the repository root:
 npm run build
 python3 -m http.server 8000   # or your preferred static server
 ```
-
