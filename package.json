@@ -1,0 +1,16 @@
+{
+  "name": "riftbound-ecoproxy",
+  "version": "1.0.0",
+  "description": "Riftbound Eco Proxy – static card proxy generator",
+  "type": "module",
+  "scripts": {
+    "export-sheet": "node scripts/export-sheet.mjs",
+    "validate": "node scripts/validate-cards.mjs",
+    "build": "node scripts/build-cards.mjs",
+    "prebuild": "node scripts/validate-cards.mjs"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}
