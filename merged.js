@@ -180,11 +180,10 @@ function applyProxyView() {
     wrapper.className = 'card';
     wrapper.setAttribute('data-variant', id);
 
-    // Bleed layer: the print styles stretch the image's outermost pixels beyond the trim edge.
+    // Bleed layer: the print styles fill the area beyond the trim edge.
     const bleedImg = document.createElement('img');
     bleedImg.className = 'card-img card-img-bleed hidden';
     bleedImg.src = fullArtUrl;
-    bleedImg.style.borderImageSource = `url("${encodeURI(bleedImg.src)}")`;
     bleedImg.alt = '';
     wrapper.appendChild(bleedImg);
 
