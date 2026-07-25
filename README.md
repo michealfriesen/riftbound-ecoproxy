@@ -1,17 +1,160 @@
 # Riftbound Eco Proxy
 
-Riftbound Eco Proxy is a browser-based tool for finding Riftbound cards, building a proxy list, reviewing it, and printing it. It is a static HTML, CSS, and JavaScript project that loads card data from a remote service, so an internet connection is required.
+Riftbound Eco Proxy is a browser-based tool for finding Riftbound cards, building a proxy list, reviewing it, and printing it. It is a static HTML, CSS, and JavaScript project.
+
+Card data is stored as version-controlled JSON files under `data/sets/`, validated against a JSON Schema, and combined into a single `data/cards.json` artifact that the browser loads via `fetch()`.
 
 ## Launch locally
 
-No dependencies or build step are required. From the repository root, start a local web server:
+Install Node.js dependencies (needed for the build tooling, not for the page itself):
+
+```sh
+npm install
+```
+
+Generate the combined card catalog (required before opening the page):
+
+```sh
+npm run build
+```
+
+Then start a local web server from the repository root:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Then open [http://localhost:8000](http://localhost:8000) in a browser. Stop the server with `Ctrl+C`.
+Open [http://localhost:8000](http://localhost:8000) in a browser. Stop the server with `Ctrl+C`.
 
-The page loads CSS and JavaScript from your local checkout, so any changes you make to those files are reflected immediately after a hard-refresh (`Ctrl+Shift+R` / `Cmd+Shift+R`).
+> **Note:** The page fetches `./data/cards.json` at runtime. That file must exist before
+> you open the page. Run `npm run build` to generate it.
 
-Use **Add Cards** to search for individual cards or **Import List** to add multiple card IDs, then use **Print** to open the **Print Settings** modal. The modal lets you configure bleed and card spacing before printing. It will open even if no cards have been added yet.
+---
+
+## Data architecture
+
+```
+data/
+  card.schema.json      ← JSON Schema (draft 2020-12) that describes every set file
+  cards.json            ← Generated; loaded by the browser. Do not edit by hand.
+  sets/
+    OGN.json            ← Original set (Origins)
+    <SET>.json          ← Future sets go here
+scripts/
+  export-sheet.mjs      ← One-time export from the Google Sheet
+  validate-cards.mjs    ← Validates all set files + checks duplicate variantNumbers
+  build-cards.mjs       ← Combines sets → data/cards.json (and live/data/cards.json)
+```
+
+### JSON Schema vs. card data
+
+`data/card.schema.json` is a **schema** – a machine-readable description of what a valid
+set file must look like. It is not card data. The actual card records live in
+`data/sets/*.json`.
+
+### variantNumber
+
+`variantNumber` (e.g. `OGN-001`) is the globally unique identifier for each card variant.
+It is used as the localStorage key for deck counts and as the URL `?id=` parameter.
+Existing saved lists remain compatible after the migration because the identifier has not changed.
+
+---
+
+## Exporting the existing Google Sheet
+
+The original card data lives in a Google Sheet served by a Google Apps Script endpoint.
+If you have network access to that endpoint, run:
+
+```sh
+npm run export-sheet
+```
+
+This fetches all rows, normalises them into the canonical schema format (arrays for
+`colors` and `tags`, integer coercions, etc.) and writes `data/sets/OGN.json`.
+
+If the export script cannot reach the endpoint (blocked network, retired URL, etc.) you
+can export manually:
+
+1. Open the Google Sheet.
+2. **File → Download → Comma-separated values (.csv)**.
+3. Map the columns to the fields in `data/card.schema.json` and populate `data/sets/OGN.json`
+   following the structure shown in that file.
+4. Run `npm run validate` to confirm the file is correct.
+5. Run `npm run build` to regenerate `data/cards.json`.
+
+---
+
+## Adding a new set
+
+1. Create `data/sets/<SET-CODE>.json` using the same structure as `OGN.json`:
+
+   ```json
+   {
+     "code": "SET",
+     "name": "Set Name",
+     "cards": [
+       {
+         "variantNumber": "SET-001",
+         "collectorNumber": 1,
+         "name": "Card Name",
+         "type": "unit",
+         "energy": 3,
+         "power": 1,
+         "might": 4,
+         "colors": ["Body"],
+         "tags": ["Elite"],
+         "description": "Rules text. [Tap]: do something.",
+         "variantImageUrl": null
+       }
+     ]
+   }
+   ```
+
+   The set `code` must match the pattern `^[A-Z0-9]{2,6}$`.
+
+2. Validate the new file:
+
+   ```sh
+   npm run validate
+   ```
+
+3. Rebuild the combined catalog:
+
+   ```sh
+   npm run build
+   ```
+
+4. Commit both the set file and the generated `data/cards.json` (and `live/data/cards.json`).
+
+---
+
+## Validate and build
+
+| Command | Description |
+|---------|-------------|
+| `npm run validate` | Validate every `data/sets/*.json` against the schema; report duplicate `variantNumber`s |
+| `npm run build` | Validate then combine all sets into `data/cards.json` and `live/data/cards.json` |
+| `npm run export-sheet` | Export the Google Sheet to `data/sets/OGN.json` |
+
+`npm run build` runs `validate` automatically before generating output, so the build fails
+loudly when any set file is invalid or IDs are duplicated.
+
+---
+
+## Deployment
+
+Both the root directory and `live/` are independent deployments of the same application.
+After running `npm run build`, the following files are updated and should be deployed:
+
+- `data/cards.json`
+- `live/data/cards.json`
+
+Each deployment fetches `./data/cards.json` relative to its own root.
+
+If you are deploying from the repository root:
+
+```sh
+npm run build
+python3 -m http.server 8000   # or your preferred static server
+```
+

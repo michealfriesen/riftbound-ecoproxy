@@ -1,8 +1,7 @@
 // merged.js – Riftbound Eco Proxy
 (() => {
   // ── Constants & State ──────────────────────────────────────────────
-  const API_BASE     = 'https://script.google.com/macros/s/AKfycbxTZhEAgwVw51GeZL_9LOPAJ48bYGeR7X8eQcQMBOPWxxbEZe_A0ghsny-GdA9gdhIn/exec';
-  const SHEET_NAME   = 'Riftbound Cards';
+  const CARDS_URL    = './data/cards.json';
   const container    = document.getElementById('card-container');
   const openBtn      = document.getElementById('open-search');
   const closeBtn     = document.getElementById('close-search');
@@ -136,28 +135,29 @@ function applyProxyView() {
     container.appendChild(el);
   }
 
-  // ── JSONP Fetch ─────────────────────────────────────────────────────
-  function jsonpFetch(params, cb) {
-    const callbackName = 'cb_' + Date.now() + '_' + Math.floor(Math.random()*1e4);
-    window[callbackName] = data => {
-      delete window[callbackName];
-      document.head.removeChild(script);
-      cb(data);
-    };
-    const qs = Object.entries(params)
-      .map(([k,v]) => `${encodeURIComponent(k)}=${encodeURIComponent(v)}`)
-      .join('&');
-    const script = document.createElement('script');
-    script.src = `${API_BASE}?${qs}&callback=${callbackName}`;
-    document.head.appendChild(script);
-  }
+  // ── Card Catalog (fetched once from data/cards.json) ────────────────
+  const allowedTypes    = ['unit','spell','gear','battlefield','legend','rune'];
+  const typeClassMap    = { unit:'unit', spell:'spell', gear:'spell',
+                            battlefield:'battlefield', legend:'legend', rune:'rune' };
+  let allCards          = [];             // flat array – used for search
+  let cardsByVariant    = new Map();      // Map<variantNumber, card> – used for rendering
 
-  // ── Card Core ───────────────────────────────────────────────────────
-  const allowedTypes  = ['unit','spell','gear','battlefield','legend','rune'];
-  const typeClassMap  = { unit:'unit', spell:'spell', gear:'spell',
-                          battlefield:'battlefield', legend:'legend', rune:'rune' };
-  let allCards = [];
-  jsonpFetch({ sheet: SHEET_NAME }, data => { allCards = Array.isArray(data) ? data : []; });
+  const catalogReady = fetch(CARDS_URL)
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status} loading ${CARDS_URL}`);
+      return r.json();
+    })
+    .then(data => {
+      allCards = Array.isArray(data) ? data : [];
+      cardsByVariant = new Map(allCards.map(c => [c.variantNumber, c]));
+    })
+    .catch(err => {
+      console.error('Failed to load card catalog:', err);
+      const msg = document.createElement('p');
+      msg.textContent = 'Card catalog could not be loaded. Check the console for details.';
+      msg.style.cssText = 'color:red;padding:1rem;';
+      container.prepend(msg);
+    });
 
   function formatDescription(txt='') {
     let out = String(txt);
@@ -221,16 +221,16 @@ function applyProxyView() {
     return wrapper;
   }
 
-  // Builder functions
+  // Builder functions – colors and tags are arrays in the JSON catalog
   function makeUnit(c) {
-    const cols = (c.colors||'').split(/[;,]\s*/).filter(Boolean),
+    const cols = Array.isArray(c.colors) ? c.colors : (c.colors||'').split(/[;,]\s*/).filter(Boolean),
           costN = Number(c.energy)||0, powN = Number(c.power)||0;
     const costIcons = Array(powN).fill().map(()=>
       `<img src="images/${cols[0]||'Body'}2.png" class="cost-icon">`
     ).join('');
     const mightHTML = c.might ? `<img src="images/SwordIconRB.png" class="might-icon"> ${c.might}` : '';
     const desc = formatDescription(c.description),
-          tags = (c.tags||'').split(/;\s*/).join(' ');
+          tags = Array.isArray(c.tags) ? c.tags.join(' ') : (c.tags||'').split(/;\s*/).join(' ');
     const html = `
       <div class="top-bar"><span class="cost">${costN}${costIcons}</span><span class="might">${mightHTML}</span></div>
       <div class="name">${c.name}</div>
@@ -245,13 +245,13 @@ function applyProxyView() {
   }
 
   function makeSpell(c) {
-    const cols = (c.colors||'').split(/[;,]\s*/).filter(Boolean),
+    const cols = Array.isArray(c.colors) ? c.colors : (c.colors||'').split(/[;,]\s*/).filter(Boolean),
           costN = Number(c.energy)||0, powN = Number(c.power)||0;
     const costIcons = Array(powN).fill().map(()=>
       `<img src="images/${cols[0]||'Body'}2.png" class="cost-icon">`
     ).join('');
     const desc = formatDescription(c.description),
-          tags = (c.tags||'').split(/;\s*/).join(' ');
+          tags = Array.isArray(c.tags) ? c.tags.join(' ') : (c.tags||'').split(/;\s*/).join(' ');
     const html = `
       <div class="top-bar"><span class="cost">${costN}${costIcons}</span></div>
       <div class="name">${c.name}</div>
@@ -280,7 +280,7 @@ function applyProxyView() {
   }
 
   function makeLegend(c) {
-    const cols = (c.colors||'').split(/[;,]\s*/).filter(Boolean),
+    const cols = Array.isArray(c.colors) ? c.colors : (c.colors||'').split(/[;,]\s*/).filter(Boolean),
           iconsHTML = cols.map(col=>`<img src="images/${col}.png" alt="${col}">`).join(''),
           parts = (c.name||'').split(',').map(s=>s.trim()),
           charName = parts[0], moniker = parts[1]||'';
@@ -299,8 +299,8 @@ function applyProxyView() {
   }
 
   function makeRune(c) {
-    const cols=(c.colors||'').split(/[;,]\s*/).filter(Boolean),
-          img=cols[0]||'Body';
+    const cols = Array.isArray(c.colors) ? c.colors : (c.colors||'').split(/[;,]\s*/).filter(Boolean),
+          img = cols[0]||'Body';
     const html = `
       <div class="rune-title">${c.name}</div>
       <div class="rune-image"><img src="images/${img}.png" alt="${c.name}"></div>`;
@@ -346,24 +346,28 @@ function applyProxyView() {
     });
   }
 
+  function renderCard(vn) {
+    const c = cardsByVariant.get(vn);
+    if (!c) {
+      console.warn(`Card "${vn}" not found in catalog.`);
+      return;
+    }
+    const t = (c.type||'').trim().toLowerCase();
+    if (!allowedTypes.includes(t)) return;
+    const el = ({ unit: makeUnit, spell: makeSpell, gear: makeSpell,
+                  battlefield: makeBattlefield, legend: makeLegend, rune: makeRune })[t](c);
+    el.classList.add(typeClassMap[t]);
+    insertSorted(el);
+  }
+
   function renderCards(ids, clear=true) {
     if (clear) container.innerHTML = '';
-    ids.forEach(vn => {
-      jsonpFetch({ sheet: SHEET_NAME, id: vn }, data => {
-        if (!Array.isArray(data) || !data[0]) return;
-        const c = data[0], t = (c.type||'').trim().toLowerCase();
-        if (!allowedTypes.includes(t)) return;
-        const el = ({ unit: makeUnit, spell: makeSpell, gear: makeSpell,
-                      battlefield: makeBattlefield, legend: makeLegend, rune: makeRune })[t](c);
-        el.classList.add(typeClassMap[t]);
-        insertSorted(el);
-      });
-    });
+    ids.forEach(vn => renderCard(vn));
   }
 
   // ── Add/Remove ───────────────────────────────────────────────────────
   window.addCard = vn => {
-    renderCards([vn], false);
+    renderCard(vn);
     window.cardCounts[vn] = (window.cardCounts[vn]||0) + 1;
     refreshBadge(vn);
     updateCount();
@@ -573,15 +577,18 @@ btnOverview.addEventListener('click', buildOverview);
     Object.keys(window.cardCounts).forEach(refreshBadge);
   }).observe(container, { childList: true });
 
+  // Restore saved state after the catalog has loaded so cards can be rendered.
   document.addEventListener('DOMContentLoaded', () => {
     loadState();
-    Object.entries(window.cardCounts).forEach(([vn,c]) => {
-      for (let i=0; i<c; i++) renderCards([vn], false);
+    catalogReady.then(() => {
+      Object.entries(window.cardCounts).forEach(([vn, c]) => {
+        for (let i = 0; i < c; i++) renderCard(vn);
+      });
+      updateCount();
     });
-    updateCount();
   });
 
-  
+
   // ── Donate Modal ────────────────────────────────────────────────
   // open the “Thank Me with a Drink” modal
 thankBtn.addEventListener('click', () => {
