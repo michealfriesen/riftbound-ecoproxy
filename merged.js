@@ -180,11 +180,11 @@ function applyProxyView() {
     wrapper.className = 'card';
     wrapper.setAttribute('data-variant', id);
 
-    // Synthetic bleed layer: same image, enlarged and blurred, rendered behind the main face.
-    // Fills the 2 mm bleed area outside the 63 mm × 88 mm trim boundary during print.
+    // Bleed layer: the print styles stretch the image's outermost pixels beyond the trim edge.
     const bleedImg = document.createElement('img');
     bleedImg.className = 'card-img card-img-bleed hidden';
     bleedImg.src = fullArtUrl;
+    bleedImg.style.borderImageSource = `url("${encodeURI(bleedImg.src)}")`;
     bleedImg.alt = '';
     wrapper.appendChild(bleedImg);
 

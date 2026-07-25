@@ -272,15 +272,19 @@ padding-top: 0px !important;
     box-shadow: none !important;
   }
 
-  /* Synthetic bleed layer fills the complete printed item */
+  /* Stretch the image's outermost pixels through the bleed without scaling the card face */
   .card .card-img-bleed {
     position: absolute !important;
     inset: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
+    width: 63mm !important;
+    height: 88mm !important;
+    box-sizing: content-box !important;
     object-fit: cover !important;
-    transform: scale(1.07) !important;
-    filter: blur(2px) !important;
+    border: var(--print-bleed, 2mm) solid transparent !important;
+    border-image-slice: 1 !important;
+    border-image-repeat: stretch !important;
+    transform: none !important;
+    filter: none !important;
     z-index: 0 !important;
   }
 
