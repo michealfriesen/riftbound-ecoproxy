@@ -337,15 +337,26 @@
   vertical-align: text-bottom;
   display: inline-block;
 }
-/* 1. Absolutely position the full proxy image */
+/* Full-proxy images: bleed layer behind the main card face */
 .card .card-img {
-  position: absolute;         /* ← add this */
-  top: 0;                     /* ← fill the card */
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;          /* if you want to preserve aspect */
-  z-index: 0 !important;      /* keep behind everything */
+  object-fit: cover;
+}
+
+/* Bleed layer: scaled and blurred to fill edges; hidden behind main face on screen */
+.card .card-img-bleed {
+  z-index: 0;
+  transform: scale(1.1);
+  filter: blur(4px);
+}
+
+/* Main card face: sits on top of the bleed layer */
+.card .card-img-main {
+  z-index: 1;
 }
 /* Hover bar styling */
 .card .hover-bar {

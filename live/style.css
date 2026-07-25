@@ -226,11 +226,12 @@ html, body {
   body {
 padding-top: 0px !important;
   }
+  /* Trim: 63 mm × 88 mm | Bleed: 2 mm each side | Printed item: 67 mm × 92 mm */
   #card-container.layout-horizontal {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, 63mm) !important;
-    grid-auto-rows: 88mm !important;
-    gap: 0 !important;
+    grid-template-columns: repeat(auto-fill, 67mm) !important;
+    grid-auto-rows: 92mm !important;
+    gap: 2mm !important;             /* 2 mm physical spacing between cards */
 
     /* Center the whole grid block horizontally */
     justify-content: center !important;
@@ -240,10 +241,40 @@ padding-top: 0px !important;
   }
 
   /* ── Card & misc cleanup ─────────────────────────────────────────── */
+  /* Each printed card item: 67 mm × 92 mm (63 mm × 88 mm trim + 2 mm bleed on each side) */
   .card {
+    width: 67mm !important;
+    height: 92mm !important;
+    border: none !important;
+    overflow: hidden !important;
     margin: 0 !important;
     page-break-inside: avoid;
     box-shadow: none !important;
+  }
+
+  /* Synthetic bleed layer: fills the full 67 mm × 92 mm printed item */
+  .card .card-img-bleed {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    transform: scale(1.07) !important;
+    filter: blur(2px) !important;
+    z-index: 0 !important;
+  }
+
+  /* Main card face: 63 mm × 88 mm, inset 2 mm from every edge */
+  .card .card-img-main {
+    position: absolute !important;
+    top: 2mm !important;
+    left: 2mm !important;
+    width: 63mm !important;
+    height: 88mm !important;
+    object-fit: cover !important;
+    transform: none !important;
+    filter: none !important;
+    z-index: 1 !important;
   }
 
   #top-bar,
