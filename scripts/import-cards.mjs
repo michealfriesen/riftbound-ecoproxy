@@ -70,6 +70,7 @@ const VALID_TYPES = new Set(['unit', 'spell', 'gear', 'battlefield', 'legend', '
 export function normalizeCardType(raw) {
   if (raw == null) return null;
   const lower = String(raw).toLowerCase().trim();
+  if (lower === 'token') return 'unit';
   return VALID_TYPES.has(lower) ? lower : null;
 }
 

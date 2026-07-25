@@ -43,6 +43,10 @@ describe('normalizeCardType', () => {
     assert.equal(normalizeCardType('Rune'), 'rune');
   });
 
+  it('normalizes source token types as units', () => {
+    assert.equal(normalizeCardType('Token'), 'unit');
+  });
+
   it('normalizes UPPER_CASE inputs', () => {
     assert.equal(normalizeCardType('UNIT'), 'unit');
     assert.equal(normalizeCardType('LEGEND'), 'legend');
@@ -394,6 +398,13 @@ describe('transformRecord', () => {
       const card = transformRecord({ ...minimalRow, cardCode, cardNumber });
       assert.equal(card.variantNumber, variantNumber);
       assert.equal(card.collectorNumber, collectorNumber);
+    }
+  });
+
+  it('transforms UNL token records as units', () => {
+    for (const cardCode of ['unl-t04', 'unl-t08']) {
+      const card = transformRecord({ ...minimalRow, cardCode, cardType: 'Token' });
+      assert.equal(card.type, 'unit');
     }
   });
 
