@@ -131,6 +131,22 @@ describe('deriveVariantNumber', () => {
     assert.equal(deriveVariantNumber('OGN-001-2'), 'OGN-001-2');
   });
 
+  it('handles token and rune card codes', () => {
+    assert.equal(deriveVariantNumber('sfd-t03'), 'SFD-t03');
+    assert.equal(deriveVariantNumber('unl-t01'), 'UNL-t01');
+    assert.equal(deriveVariantNumber('ven-r01'), 'VEN-r01');
+  });
+
+  it('handles special-promo card codes', () => {
+    assert.equal(deriveVariantNumber('ven-sp1-006'), 'VEN-sp1-006');
+    assert.equal(deriveVariantNumber('ven-sp6-006'), 'VEN-sp6-006');
+  });
+
+  it('handles star card codes', () => {
+    assert.equal(deriveVariantNumber('sfd-223-star-221'), 'SFD-223-star-221');
+    assert.equal(deriveVariantNumber('unl-237-star-219'), 'UNL-237-star-219');
+  });
+
   it('returns null for null/undefined', () => {
     assert.equal(deriveVariantNumber(null), null);
     assert.equal(deriveVariantNumber(undefined), null);
@@ -152,6 +168,12 @@ describe('deriveVariantNumber', () => {
   it('returns null when number part is missing', () => {
     assert.equal(deriveVariantNumber('OGS-'), null);
     assert.equal(deriveVariantNumber('OGS-abc'), null);
+  });
+
+  it('returns null for malformed special card codes', () => {
+    assert.equal(deriveVariantNumber('UNL-t'), null);
+    assert.equal(deriveVariantNumber('VEN-sp1'), null);
+    assert.equal(deriveVariantNumber('SFD-223-star'), null);
   });
 });
 
@@ -175,6 +197,20 @@ describe('deriveCollectorNumber', () => {
 
   it('strips variant letter suffix from card code', () => {
     assert.equal(deriveCollectorNumber(null, 'OGN-117a'), 117);
+  });
+
+  it('derives collector numbers from token and rune card codes', () => {
+    assert.equal(deriveCollectorNumber(null, 'SFD-t03'), 3);
+    assert.equal(deriveCollectorNumber(null, 'VEN-r01'), 1);
+  });
+
+  it('derives collector numbers from special-promo card codes', () => {
+    assert.equal(deriveCollectorNumber(null, 'VEN-sp1-006'), 1);
+    assert.equal(deriveCollectorNumber(null, 'VEN-sp6-006'), 6);
+  });
+
+  it('derives the leading collector number from star card codes', () => {
+    assert.equal(deriveCollectorNumber(null, 'SFD-223-star-221'), 223);
   });
 
   it('returns null for invalid inputs', () => {
@@ -314,6 +350,21 @@ describe('transformRecord', () => {
     const card = transformRecord({ ...minimalRow, cardCode: 'sp2-006', cardNumber: 6 });
     assert.equal(card.variantNumber, 'SP2-006');
     assert.equal(card.collectorNumber, 6);
+  });
+
+  it('transforms token, rune, special-promo, and star source identifiers', () => {
+    const fixtures = [
+      ['sfd-t03', 't03', 'SFD-t03', 3],
+      ['ven-r01', 'r01', 'VEN-r01', 1],
+      ['ven-sp1-006', 'sp1-006', 'VEN-sp1-006', 1],
+      ['unl-226-star-219', '226-star-219', 'UNL-226-star-219', 226],
+    ];
+
+    for (const [cardCode, cardNumber, variantNumber, collectorNumber] of fixtures) {
+      const card = transformRecord({ ...minimalRow, cardCode, cardNumber });
+      assert.equal(card.variantNumber, variantNumber);
+      assert.equal(card.collectorNumber, collectorNumber);
+    }
   });
 
   it('derives collectorNumber from cardCode when cardNumber absent', () => {

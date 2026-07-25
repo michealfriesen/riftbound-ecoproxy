@@ -105,7 +105,7 @@ export function normalizeColors(raw) {
  * Rules:
  *   1. Split on the first '-'.
  *   2. Uppercase the set-code portion (must be 2–6 alphanumeric characters).
- *   3. Keep the rest (digits + optional lowercase letter + optional -number).
+ *   3. Keep the source identifier after the set code.
  *   4. Validate the result against the schema pattern.
  *
  * Examples:
@@ -113,6 +113,10 @@ export function normalizeColors(raw) {
  *   "ogs-017"  → "OGS-017"
  *   "sp2-006"  → "SP2-006"
  *   "OGN-117a" → "OGN-117a"
+ *   "unl-t01"  → "UNL-t01"
+ *   "ven-r01"  → "VEN-r01"
+ *   "ven-sp1-006" → "VEN-sp1-006"
+ *   "sfd-223-star-221" → "SFD-223-star-221"
  *
  * @param {string|null|undefined} cardCode
  * @returns {string|null} Normalized variantNumber, or null if invalid.
@@ -133,7 +137,13 @@ export function deriveVariantNumber(cardCode) {
   const variantNumber = `${setCode}-${rest}`;
 
   // Validate final identifier against schema pattern
-  if (!/^[A-Z0-9]+-[0-9]+[a-z]?(?:-[0-9]+)?$/.test(variantNumber)) return null;
+  if (
+    !/^[A-Z0-9]+-(?:[0-9]+[a-z]?(?:-[0-9]+)?|[tr][0-9]+|sp[0-9]+-[0-9]+|[0-9]+-star-[0-9]+)$/.test(
+      variantNumber
+    )
+  ) {
+    return null;
+  }
 
   return variantNumber;
 }
@@ -148,6 +158,9 @@ export function deriveVariantNumber(cardCode) {
  *   (null, "OGN-056")  → 56
  *   (3, "OGN-056")     → 3
  *   (null, "OGN-117a") → 117
+ *   (null, "UNL-t03")  → 3
+ *   (null, "VEN-r01")  → 1
+ *   (null, "VEN-sp1-006") → 1
  *
  * @param {number|null|undefined} sourceNumber  Source `cardNumber` value.
  * @param {string|null|undefined} cardCode      Source `cardCode` value.
@@ -162,9 +175,9 @@ export function deriveCollectorNumber(sourceNumber, cardCode) {
   const dashIdx = str.indexOf('-');
   if (dashIdx < 1) return null;
   const rest = str.slice(dashIdx + 1);
-  const match = rest.match(/^(\d+)/);
+  const match = rest.match(/^(?:[tr](\d+)|sp(\d+)-\d+|(\d+))/);
   if (!match) return null;
-  const n = parseInt(match[1], 10);
+  const n = parseInt(match[1] ?? match[2] ?? match[3], 10);
   return n >= 1 ? n : null;
 }
 
@@ -215,7 +228,7 @@ export function transformRecord(row) {
   if (variantNumber === null) {
     throw new Error(
       `Cannot derive a valid variantNumber from cardCode "${cardCode}". ` +
-      'Expected format: SET-NNN (e.g. OGS-001, SP2-006, OGN-117a).'
+      'Expected a supported format (e.g. OGS-001, OGN-117a, UNL-t01, VEN-sp1-006).'
     );
   }
 
