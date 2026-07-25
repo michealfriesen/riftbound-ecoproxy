@@ -136,6 +136,26 @@ html, body {
   margin-top: 1em;
 }
 
+.print-settings-content {
+  max-width: 400px;
+}
+.print-settings-content form {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+.print-settings-content input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.print-settings-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+}
+
 /* Search Modal Base */
 #search-modal {
   position: fixed !important;
@@ -226,12 +246,12 @@ html, body {
   body {
 padding-top: 0px !important;
   }
-  /* Trim: 63 mm × 88 mm | Bleed: 2 mm each side | Printed item: 67 mm × 92 mm */
+  /* Trim: 63 mm × 88 mm with configurable bleed and spacing */
   #card-container.layout-horizontal {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, 67mm) !important;
-    grid-auto-rows: 92mm !important;
-    gap: 2mm !important;             /* 2 mm physical spacing between cards */
+    grid-template-columns: repeat(auto-fill, var(--print-card-width, 67mm)) !important;
+    grid-auto-rows: var(--print-card-height, 92mm) !important;
+    gap: var(--print-spacing, 2mm) !important;
 
     /* Center the whole grid block horizontally */
     justify-content: center !important;
@@ -241,10 +261,10 @@ padding-top: 0px !important;
   }
 
   /* ── Card & misc cleanup ─────────────────────────────────────────── */
-  /* Each printed card item: 67 mm × 92 mm (63 mm × 88 mm trim + 2 mm bleed on each side) */
+  /* Each printed item includes the configured bleed around the 63 mm × 88 mm trim area */
   .card {
-    width: 67mm !important;
-    height: 92mm !important;
+    width: var(--print-card-width, 67mm) !important;
+    height: var(--print-card-height, 92mm) !important;
     border: none !important;
     overflow: hidden !important;
     margin: 0 !important;
@@ -252,7 +272,7 @@ padding-top: 0px !important;
     box-shadow: none !important;
   }
 
-  /* Synthetic bleed layer: fills the full 67 mm × 92 mm printed item */
+  /* Synthetic bleed layer fills the complete printed item */
   .card .card-img-bleed {
     position: absolute !important;
     inset: 0 !important;
@@ -264,11 +284,11 @@ padding-top: 0px !important;
     z-index: 0 !important;
   }
 
-  /* Main card face: 63 mm × 88 mm, inset 2 mm from every edge */
+  /* Main card face remains trim size and is inset by the configured bleed */
   .card .card-img-main {
     position: absolute !important;
-    top: 2mm !important;
-    left: 2mm !important;
+    top: var(--print-bleed, 2mm) !important;
+    left: var(--print-bleed, 2mm) !important;
     width: 63mm !important;
     height: 88mm !important;
     object-fit: cover !important;
@@ -285,6 +305,7 @@ padding-top: 0px !important;
   .hover-bar,
   .add-btn,
   .remove-btn, 
+  #print-settings-modal,
   .powered-by
   {
     display: none !important;
