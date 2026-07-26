@@ -4,6 +4,7 @@ import {
   buildCatalogDeckCodeMap,
   catalogCodeToDeckCode,
   parseImportText,
+  validateImportSize,
 } from '../src/deck-import.js';
 
 describe('catalogCodeToDeckCode', () => {
@@ -50,5 +51,31 @@ describe('parseImportText', () => {
 
   it('rejects empty input', () => {
     assert.throws(() => parseImportText(' ', () => assert.fail()), /Paste a deck code/);
+  });
+
+  it('normalizes lowercase deck codes before decoding', () => {
+    let decodedCode;
+    parseImportText('cuaacdibaecqayiaaa', code => {
+      decodedCode = code;
+      return { mainDeck: [], sideboard: [] };
+    });
+    assert.equal(decodedCode, 'CUAACDIBAECQAYIAAA');
+  });
+
+  it('rejects unrecognized input', () => {
+    assert.throws(() => parseImportText('nonsense', () => assert.fail()), /not a valid/);
+  });
+});
+
+describe('validateImportSize', () => {
+  it('allows normal and high-copy decks within the proxy limit', () => {
+    assert.doesNotThrow(() => validateImportSize([{ cardCode: 'VEN-097', count: 500 }]));
+  });
+
+  it('rejects deck codes with excessive copy counts', () => {
+    assert.throws(
+      () => validateImportSize([{ cardCode: 'VEN-097', count: 1_000_000_000 }]),
+      /limited to 500/
+    );
   });
 });

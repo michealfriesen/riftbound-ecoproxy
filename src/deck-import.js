@@ -29,8 +29,9 @@ export function parseImportText(input, getDeckFromCode) {
   const value = String(input || '').trim();
   if (!value) throw new Error('Paste a deck code or card list first.');
 
-  if (/^[A-Z2-7]+$/.test(value) && value.length >= 10) {
-    const decoded = getDeckFromCode(value);
+  const normalizedDeckCode = value.toUpperCase();
+  if (/^[A-Z2-7]+$/.test(normalizedDeckCode) && normalizedDeckCode.length >= 10) {
+    const decoded = getDeckFromCode(normalizedDeckCode);
     const counts = new Map();
     for (const card of [...decoded.mainDeck, ...decoded.sideboard]) {
       counts.set(card.cardCode, (counts.get(card.cardCode) || 0) + card.count);
@@ -38,9 +39,18 @@ export function parseImportText(input, getDeckFromCode) {
     return [...counts].map(([cardCode, count]) => ({ cardCode, count }));
   }
 
-  return value
+  const cards = value
     .split(/\s+/)
     .map(token => token.split('-').slice(0, 2).join('-'))
     .filter(cardCode => cardCode.includes('-'))
     .map(cardCode => ({ cardCode, count: 1 }));
+  if (!cards.length) throw new Error('Input is not a valid deck code or card list.');
+  return cards;
+}
+
+export function validateImportSize(cards, maxCards = 500) {
+  const total = cards.reduce((sum, card) => sum + card.count, 0);
+  if (!Number.isSafeInteger(total) || total > maxCards) {
+    throw new Error(`Deck contains ${total} cards; imports are limited to ${maxCards}.`);
+  }
 }

@@ -444,6 +444,7 @@ function applyProxyView() {
           area.value,
           window.RiftboundDeckCodes.getDeckFromCode
         );
+        window.RiftboundDeckCodes.validateImportSize(imported);
         const resolved = imported.map(({ cardCode, count }) => ({
           count,
           variantNumber: variantsByDeckCode.get(cardCode) || cardsByVariant.get(cardCode)?.variantNumber,
@@ -451,7 +452,7 @@ function applyProxyView() {
         }));
         const missing = resolved.filter(card => !card.variantNumber).map(card => card.cardCode);
         if (missing.length) {
-          throw new Error(`Cards not found: ${missing.join(', ')}`);
+          throw new Error(`Cards not available in this catalog: ${missing.join(', ')}`);
         }
 
         if (clearCheckbox.checked) {
