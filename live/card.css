@@ -354,6 +354,14 @@
   filter: blur(4px);
 }
 
+.card .card-img-bleed.card-img-landscape {
+  top: 50%;
+  left: 50%;
+  width: 139.6825%;
+  height: 71.5909%;
+  transform: translate(-50%, -50%) rotate(90deg) scale(1.1);
+}
+
 /* Main card face: sits on top of the bleed layer */
 .card .card-img-main {
   z-index: 1;
@@ -433,4 +441,3 @@
   width: 100%;
   height: 100%;
 }
-

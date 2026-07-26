@@ -201,6 +201,7 @@ function applyProxyView() {
     bleedImg.className = 'card-img card-img-bleed hidden';
     bleedImg.src = fullArtUrl;
     bleedImg.alt = '';
+    alignImageOrientation(bleedImg);
     wrapper.appendChild(bleedImg);
 
     // Main full-art image element, aligned to the 63 mm × 88 mm trim area.
