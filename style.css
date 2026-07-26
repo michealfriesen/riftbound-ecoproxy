@@ -313,7 +313,7 @@ html, body {
       linear-gradient(#000 0 0) bottom right / 8mm 8mm no-repeat;
   }
 
-  /* Soften the enlarged bleed behind the sharp trim image for a smoother full-art transition */
+  /* Fill the entire card with a bleed layer so print rasterization cannot expose white seams */
   .card .card-img-bleed {
     position: absolute !important;
     inset: 0 !important;
@@ -321,8 +321,8 @@ html, body {
     height: 100% !important;
     object-fit: fill !important;
     border: 0 !important;
-    transform: scale(1.04) !important;
-    filter: blur(0.6mm) !important;
+    transform: none !important;
+    filter: none !important;
     z-index: 0 !important;
   }
 
@@ -332,7 +332,7 @@ html, body {
     left: 50% !important;
     width: var(--print-card-height, 92mm) !important;
     height: var(--print-card-width, 67mm) !important;
-    transform: translate(-50%, -50%) rotate(90deg) scale(1.04) !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
   }
 
   /* Main card face remains trim size and is inset by the configured bleed */
