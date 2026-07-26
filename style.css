@@ -311,8 +311,7 @@ html, body {
   .hover-bar,
   .add-btn,
   .remove-btn, 
-  #print-settings-modal,
-  .powered-by
+  #print-settings-modal
   {
     display: none !important;
   }
@@ -534,35 +533,4 @@ html, body {
 }
 .modal-submit:active {
   transform: translateY(0);
-}
-/* ── Powered-By Logo ─────────────────────────────────────────────────── */
-/* Add “Powered By:” above the logo */
-.powered-by {
-  position: fixed;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  z-index: 1000;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-  text-align: center;               /* center the text above the img */
- text-decoration: none;
-}
-.powered-by:hover {
-  opacity: 1;
-}
-
-/* the label above the image */
-.powered-by::before {
-  content: "Powered By:";
-  display: block;
-  font-size: 0.75rem;
-  color: #000000;                      /* tweak to suit your background */
-  margin-bottom: 0.25rem;
-}
-
-/* size the image to something unobtrusive */
-.powered-by img {
-  display: block;
-  width: 150px;    /* adjust as needed */
-  height: auto;
 }
