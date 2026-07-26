@@ -1,11 +1,19 @@
 import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
 import { describe, it } from 'node:test';
+import { getDeckFromCode } from '@piltoverarchive/riftbound-deck-codes';
 import {
   buildCatalogDeckCodeMap,
   catalogCodeToDeckCode,
   parseImportText,
   validateImportSize,
 } from '../src/deck-import.js';
+
+const workingDeckCodes = [
+  'CMAAAAAAAAAQCAAA2YAQAAIBAAAFSAADAQAAAX6RAHKQDXIBAIBQBGYBWAAQCBAATEAQGAIAAB2AGAYAIZIFCAYEABHKKANQAEBQKAAA3QA6AAPWAGEQFIQCAEBQBWABAMCAAP2H2IAQAAIBAMAEUAQCAAAGTYABAQCAAP2OUQA2SAIBAAAPMAI',
+  'CMAAAAAAAAAQCAAAPYAACAIAAAVAAAYFAAACWLJ2RAAZYAICAMACIYICAQADK6ACAMAAALSNQQAQEAYANFXAIAYAACAADGQBUIBACAIACMBAGAGPAHMQCAIEABYQCAIDAAQACAIEADAACAQBAAAIAAICAMAGS3QBAQAHC',
+  'CMAAAAAAAAAACAQAABM2MAIAAABAMAAAL5T2SANNAG3QDRYBAECAAUAEAIAABMYBXEAQEAYARAAYYAICAQAIAAOGAEAQIAMWAEDAEAAALWQQEAIBAAFQEAYASIA5OAICAQAENTIBAECACTYBAQBOUAIAAIAQAADJAECAB3QBAIAQGAESAEBQIACGQAA4MAIBAQAU6',
+];
 
 describe('catalogCodeToDeckCode', () => {
   it('normalizes gallery, alternate, signed, rune, and special identifiers', () => {
@@ -60,6 +68,27 @@ describe('parseImportText', () => {
       return { mainDeck: [], sideboard: [] };
     });
     assert.equal(decodedCode, 'CUAACDIBAECQAYIAAA');
+  });
+
+  it('decodes supported deck codes and resolves every card in the catalog', async () => {
+    const catalog = JSON.parse(
+      await readFile(new URL('../data/cards.json', import.meta.url), 'utf8')
+    );
+    const variantsByDeckCode = buildCatalogDeckCodeMap(catalog);
+    const catalogVariants = new Set(catalog.map(card => card.variantNumber));
+
+    for (const deckCode of workingDeckCodes) {
+      const imported = parseImportText(deckCode, getDeckFromCode);
+      validateImportSize(imported);
+
+      assert.equal(imported.reduce((total, card) => total + card.count, 0), 64);
+      assert.deepEqual(
+        imported
+          .filter(card => !variantsByDeckCode.has(card.cardCode) && !catalogVariants.has(card.cardCode))
+          .map(card => card.cardCode),
+        []
+      );
+    }
   });
 
   it('rejects unrecognized input', () => {

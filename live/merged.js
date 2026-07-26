@@ -439,6 +439,7 @@ function applyProxyView() {
     overlay.querySelector('#import-ok').onclick = async () => {
       error.classList.add('hidden');
       try {
+        console.info('Deck import started.', { inputLength: area.value.trim().length });
         await catalogReady;
         const imported = window.RiftboundDeckCodes.parseImportText(
           area.value,
@@ -463,10 +464,16 @@ function applyProxyView() {
         resolved.forEach(({ variantNumber, count }) => {
           for (let i = 0; i < count; i++) window.addCard(variantNumber);
         });
+        console.info('Deck import succeeded.', {
+          uniqueCards: resolved.length,
+          totalCards: resolved.reduce((total, card) => total + card.count, 0),
+        });
         area.value = '';
         overlay.remove();
       } catch (err) {
-        error.textContent = `Import failed: ${err.message}`;
+        console.error('Deck import failed:', err);
+        const message = err instanceof Error ? err.message : String(err);
+        error.textContent = `Import failed: ${message}`;
         error.classList.remove('hidden');
       }
     };
