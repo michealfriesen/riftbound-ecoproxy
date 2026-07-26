@@ -188,11 +188,20 @@ function applyProxyView() {
     wrapper.className = 'card';
     wrapper.setAttribute('data-variant', id);
 
+    function alignImageOrientation(image) {
+      const align = () => {
+        image.classList.toggle('card-img-landscape', image.naturalWidth > image.naturalHeight);
+      };
+      if (image.complete) align();
+      else image.addEventListener('load', align, { once: true });
+    }
+
     // Bleed layer: the print styles fill the area beyond the trim edge.
     const bleedImg = document.createElement('img');
     bleedImg.className = 'card-img card-img-bleed hidden';
     bleedImg.src = fullArtUrl;
     bleedImg.alt = '';
+    alignImageOrientation(bleedImg);
     wrapper.appendChild(bleedImg);
 
     // Main full-art image element, aligned to the 63 mm × 88 mm trim area.
@@ -200,6 +209,7 @@ function applyProxyView() {
     img.className = 'card-img card-img-main hidden';
     img.src = fullArtUrl;
     img.dataset.fullArt = fullArtUrl;
+    alignImageOrientation(img);
     wrapper.appendChild(img);
 
     // Insert main HTML

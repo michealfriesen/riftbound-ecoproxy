@@ -294,6 +294,15 @@ html, body {
     z-index: 0 !important;
   }
 
+  .card .card-img-bleed.card-img-landscape {
+    inset: auto !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: var(--print-card-height, 92mm) !important;
+    height: var(--print-card-width, 67mm) !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+  }
+
   /* Main card face remains trim size and is inset by the configured bleed */
   .card .card-img-main {
     position: absolute !important;
@@ -305,6 +314,14 @@ html, body {
     transform: none !important;
     filter: none !important;
     z-index: 1 !important;
+  }
+
+  .card .card-img-main.card-img-landscape {
+    top: calc(var(--print-bleed, 2mm) + 44mm) !important;
+    left: calc(var(--print-bleed, 2mm) + 31.5mm) !important;
+    width: 88.2mm !important;
+    height: 63.2mm !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
   }
 
   #top-bar,
