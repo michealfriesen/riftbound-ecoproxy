@@ -114,6 +114,19 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-007.webp"
     },
     {
+      "variantNumber": "OGN-007a-298",
+      "collectorNumber": 7,
+      "name": "Fury Rune",
+      "type": "rune",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/09da06c69d07d4e72dde703737ef167472c715af-1488x2078.png"
+    },
+    {
       "variantNumber": "OGN-008",
       "collectorNumber": 8,
       "name": "Get Excited!",
@@ -436,6 +449,25 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-027.webp"
     },
     {
+      "variantNumber": "OGN-027a-298",
+      "collectorNumber": 27,
+      "name": "Darius, Trifarian",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Trifarian",
+        "Darius",
+        "Noxus"
+      ],
+      "description": "When you play your second card in a turn, give me +2 [S] this turn and ready me.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/df878ecc25160bb7e53b254a609ec243e133e8f1-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-028",
       "collectorNumber": 28,
       "name": "Draven, Showboat",
@@ -484,6 +516,24 @@
       ],
       "description": "[ACCELERATE] (You may pay [1] [Fury] as an additional cost to have me enter ready.)\n[ASSAULT 2] (+2 [Might] while I'm an attacker.)\nWhen you play me, discard 2.",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-030.webp"
+    },
+    {
+      "variantNumber": "OGN-030a-298",
+      "collectorNumber": 30,
+      "name": "Jinx, Demolitionist",
+      "type": "unit",
+      "energy": 3,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Jinx",
+        "Zaun"
+      ],
+      "description": "[Accelerate] (You may pay [1][C] as an additional cost to have me enter ready.)\n[Assault 2] (+2 [S] while I'm an attacker.)\nWhen you play me, discard 2.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/60ff1aec7ecb1b11ff89fdb620c6182897a8b402-744x1039.png"
     },
     {
       "variantNumber": "OGN-031",
@@ -639,6 +689,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-039.webp"
     },
     {
+      "variantNumber": "OGN-039a-298",
+      "collectorNumber": 39,
+      "name": "Kai'Sa, Survivor",
+      "type": "unit",
+      "energy": 4,
+      "power": null,
+      "might": 4,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Kai'Sa",
+        "The Void"
+      ],
+      "description": "[Accelerate] (You may pay [1][C] as an additional cost to have me enter ready.)\nWhen I conquer, draw 1.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/ad69bde670ce218adee1d2a618a7295d2fb7bd4c-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-040",
       "collectorNumber": 40,
       "name": "Seal of Rage",
@@ -671,6 +739,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-041.webp"
     },
     {
+      "variantNumber": "OGN-041a-298",
+      "collectorNumber": 41,
+      "name": "Volibear, Furious",
+      "type": "unit",
+      "energy": 10,
+      "power": 2,
+      "might": 9,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Volibear",
+        "Freljord"
+      ],
+      "description": "[Deflect 2] (Opponents must pay [A][A] to choose me with a spell or ability.)\nWhen I attack, deal 5 damage split among any number of enemy units here.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/744d1b950ae7ef1e6e5b244538a6afb9802e5e3d-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-042",
       "collectorNumber": 42,
       "name": "Calm Rune",
@@ -682,6 +768,19 @@
         "Calm"
       ],
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-042.webp"
+    },
+    {
+      "variantNumber": "OGN-042a-298",
+      "collectorNumber": 42,
+      "name": "Calm Rune",
+      "type": "rune",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/88187b586b9b3cc2f48fd20c806dd5fc5e1bfc71-1488x2078.png"
     },
     {
       "variantNumber": "OGN-043",
@@ -1054,6 +1153,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-066.webp"
     },
     {
+      "variantNumber": "OGN-066a-298",
+      "collectorNumber": 66,
+      "name": "Ahri, Alluring",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Ahri",
+        "Ionia"
+      ],
+      "description": "When I hold, you score 1 point.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/933f5d58cc0e27d017982306b9ae0f581c9c8d27-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-067",
       "collectorNumber": 67,
       "name": "Blitzcrank, Impassive",
@@ -1222,6 +1339,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-076.webp"
     },
     {
+      "variantNumber": "OGN-076a-298",
+      "collectorNumber": 76,
+      "name": "Yasuo, Remorseful",
+      "type": "unit",
+      "energy": 6,
+      "power": 2,
+      "might": 6,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Yasuo",
+        "Ionia"
+      ],
+      "description": "When I attack, deal damage equal to my Might to an enemy unit here.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/3f2cff3ff3b146c8bfe11594e37e9d8109884273-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-077",
       "collectorNumber": 77,
       "name": "Zhonya's Hourglass",
@@ -1254,6 +1389,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-078.webp"
     },
     {
+      "variantNumber": "OGN-078a-298",
+      "collectorNumber": 78,
+      "name": "Lee Sin, Ascetic",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Lee Sin",
+        "Ionia"
+      ],
+      "description": "[Shield] (+1 [S] while I'm a defender.)\n[T]: Buff me. (I get a +1 [S] buff.)\nI can have any number of buffs.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/d34a98faacd3f7d32afd6fad99c806f202aa9dad-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-079",
       "collectorNumber": 79,
       "name": "Leona, Zealot",
@@ -1270,6 +1423,24 @@
       ],
       "description": "If an opponent's score is within 3 points of the Victory Score, I enter ready.\nStunned enemy units here have -8 [Might], to a minimum of 1 [Might].",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-079.webp"
+    },
+    {
+      "variantNumber": "OGN-079a-298",
+      "collectorNumber": 79,
+      "name": "Leona, Zealot",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 6,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Leona",
+        "Mount Targon"
+      ],
+      "description": "If an opponent's score is within 3 points of the Victory Score, I enter ready.\nStunned enemy units here have -8 [S], to a minimum of 1 [S].",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/451caa433b1fbe8e9d2b86548b82c3c5f2bac620-744x1039.png"
     },
     {
       "variantNumber": "OGN-080",
@@ -1427,6 +1598,19 @@
         "Mind"
       ],
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-089.webp"
+    },
+    {
+      "variantNumber": "OGN-089a-298",
+      "collectorNumber": 89,
+      "name": "Mind Rune",
+      "type": "rune",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Mind"
+      ],
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/ecf8c8632c728520b51cd4bc79036677e96ebdfd-1488x2078.png"
     },
     {
       "variantNumber": "OGN-090",
@@ -1795,6 +1979,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-112.webp"
     },
     {
+      "variantNumber": "OGN-112a-298",
+      "collectorNumber": 112,
+      "name": "Kai'Sa, Evolutionary",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 6,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Kai'Sa",
+        "The Void"
+      ],
+      "description": "[Ganking] (I can move from battlefield to battlefield.)\nWhen I conquer, you may play a spell from your trash with Energy cost less than your points without paying its Energy cost. Then recycle it. (You must still pay its Power cost.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/2c8c9619d4afd081de548b511000f7c4b849ec1e-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-113",
       "collectorNumber": 113,
       "name": "Malzahar, Fanatic",
@@ -1858,6 +2060,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-116.webp"
     },
     {
+      "variantNumber": "OGN-117-298",
+      "collectorNumber": 117,
+      "name": "Viktor, Innovator",
+      "type": "unit",
+      "energy": 4,
+      "power": 1,
+      "might": 3,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Viktor",
+        "Zaun"
+      ],
+      "description": "When you play a card on an opponent's turn, play a 1 [S] Recruit unit token in your base.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/35be0b10f13611b4f5d828f2a79001036ab57ba1-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-117a",
       "collectorNumber": 117,
       "name": "Viktor, Innovator",
@@ -1912,6 +2132,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-119.webp"
     },
     {
+      "variantNumber": "OGN-119a-298",
+      "collectorNumber": 119,
+      "name": "Ahri, Inquisitive",
+      "type": "unit",
+      "energy": 3,
+      "power": 1,
+      "might": 3,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Ahri",
+        "Ionia"
+      ],
+      "description": "When I attack or defend, give an enemy unit here -2 [S] this turn, to a minimum of 1 [S].",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/7adc5aa8dba66bf918b8140699cb3a74f7b0efb5-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-120",
       "collectorNumber": 120,
       "name": "Seal of Insight",
@@ -1943,6 +2181,25 @@
       ],
       "description": "[Hidden] (Hide now for [power] to react with later for [0].)\n\nWhen I defend or I'm played from [Hidden], reveal the top 5 cards of your Main Deck. Deal 1 to an enemy unit here for each card with [Hidden], then recycle them.",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-121.webp"
+    },
+    {
+      "variantNumber": "OGN-121a-298",
+      "collectorNumber": 121,
+      "name": "Teemo, Strategist",
+      "type": "unit",
+      "energy": 2,
+      "power": 1,
+      "might": 2,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Yordle",
+        "Teemo",
+        "Bandle City"
+      ],
+      "description": "[Hidden] (Hide now for [A] to react with later for [0].)\nWhen I defend, choose an enemy unit here and reveal the top 5 cards of your Main Deck. Deal 1 to that unit for each card with [Hidden] revealed this way, then recycle the revealed cards.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/0709ab02b75d9acc8f3c4037ec3a4140323150d8-744x1039.png"
     },
     {
       "variantNumber": "OGN-122",
@@ -2015,6 +2272,19 @@
         "Body"
       ],
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-126.webp"
+    },
+    {
+      "variantNumber": "OGN-126a-298",
+      "collectorNumber": 126,
+      "name": "Body Rune",
+      "type": "rune",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Body"
+      ],
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/011081f82cab36f8ec0d6874492512fd7859f59e-1488x2078.png"
     },
     {
       "variantNumber": "OGN-127",
@@ -2421,6 +2691,24 @@
       "variantImageUrl": "https://piltoverarchive.b-cdn.net/temporary/1752649712007-k2irls9kyrg.png"
     },
     {
+      "variantNumber": "OGN-151a-298",
+      "collectorNumber": 151,
+      "name": "Lee Sin, Centered",
+      "type": "unit",
+      "energy": 6,
+      "power": null,
+      "might": 6,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Lee Sin",
+        "Ionia"
+      ],
+      "description": "[Accelerate] (You may pay [1][C] as an additional cost to have me enter ready.)\nOther buffed friendly units at my battlefield have +2 [S].",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/68d9364d3138e06a25724a0aaae0b7226472cd68-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-152",
       "collectorNumber": 152,
       "name": "Mistfall",
@@ -2531,6 +2819,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-158.webp"
     },
     {
+      "variantNumber": "OGN-158a-298",
+      "collectorNumber": 158,
+      "name": "Volibear, Imposing",
+      "type": "unit",
+      "energy": 12,
+      "power": 2,
+      "might": 10,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Volibear",
+        "Freljord"
+      ],
+      "description": "[Shield 3] (+3 [S] while I'm a defender.)\n[Tank] (I must be assigned combat damage first.)\nWhen an opponent moves to a battlefield other than mine, draw 1. (Bases are not battlefield.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/faceb90b6a46e79eadba43871b8cffe1ec5037a7-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-159",
       "collectorNumber": 159,
       "name": "Warwick, Hunter",
@@ -2600,6 +2906,25 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-162.webp"
     },
     {
+      "variantNumber": "OGN-162a-298",
+      "collectorNumber": 162,
+      "name": "Miss Fortune, Captain",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Pirate",
+        "Miss Fortune",
+        "Bilgewater"
+      ],
+      "description": "[Accelerate] (You may pay [1][C] as an additional cost to have me enter ready.)\n[Ganking] (I can move from battlefield to battlefield.)\nThe first time I move each turn, you may ready something else that's exhausted.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/6a7a0dfa952259993fa0d8998a820585ff4f81c6-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-163",
       "collectorNumber": 163,
       "name": "Seal of Strength",
@@ -2632,6 +2957,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-164.webp"
     },
     {
+      "variantNumber": "OGN-164a-298",
+      "collectorNumber": 164,
+      "name": "Sett, Brawler",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Sett",
+        "Ionia"
+      ],
+      "description": "When I'm played and when I conquer, buff me. (If I don't have a buff, I get a +1 [S] buff.)\nSpend my buff: Give me +4 [S] this turn.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/26e65c15e8a1ce1a9cd60d96345c7916e67e00ac-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-165",
       "collectorNumber": 165,
       "name": "Cemetery Attendant",
@@ -2661,6 +3004,19 @@
         "Chaos"
       ],
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-166.webp"
+    },
+    {
+      "variantNumber": "OGN-166a-298",
+      "collectorNumber": 166,
+      "name": "Chaos Rune",
+      "type": "rune",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Chaos"
+      ],
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/fbcde2f71fcc06fb8afc83855e24447a393f8943-1488x2078.png"
     },
     {
       "variantNumber": "OGN-167",
@@ -3085,6 +3441,25 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-193.webp"
     },
     {
+      "variantNumber": "OGN-193a-298",
+      "collectorNumber": 193,
+      "name": "Miss Fortune, Buccaneer",
+      "type": "unit",
+      "energy": 4,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Chaos"
+      ],
+      "tags": [
+        "Pirate",
+        "Miss Fortune",
+        "Bilgewater"
+      ],
+      "description": "You may play me to an open battlefield.\nFriendly units may be played to open battlefields.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8fde2eeb516af55b24467569aa982037f5b67b89-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-194",
       "collectorNumber": 194,
       "name": "Nocturne, Horrifying",
@@ -3151,6 +3526,25 @@
       ],
       "description": "[HIDDEN] (Hide now for [Rune] to react with later for [0].)\nWhen you play me, give me +3 [Might] this turn.",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-197.webp"
+    },
+    {
+      "variantNumber": "OGN-197a-298",
+      "collectorNumber": 197,
+      "name": "Teemo, Scout",
+      "type": "unit",
+      "energy": 2,
+      "power": null,
+      "might": 1,
+      "colors": [
+        "Chaos"
+      ],
+      "tags": [
+        "Yordle",
+        "Teemo",
+        "Bandle City"
+      ],
+      "description": "[Hidden] (Hide now for [A] to react with later for [0].)\nWhen you play me, give me +3 [S] this turn.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/404a8aa0061b58611bd913b58dd01d99fdb8087d-744x1039.png"
     },
     {
       "variantNumber": "OGN-198",
@@ -3231,6 +3625,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-202.webp"
     },
     {
+      "variantNumber": "OGN-202a-298",
+      "collectorNumber": 202,
+      "name": "Jinx, Rebel",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Chaos"
+      ],
+      "tags": [
+        "Jinx",
+        "Zaun"
+      ],
+      "description": "When you discard one or more cards, ready me and give me +1 [S] this turn.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/da4c4f96081b4c0e151dba74a0ef6eae338478f0-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-203",
       "collectorNumber": 203,
       "name": "Possession",
@@ -3275,6 +3687,24 @@
       ],
       "description": "[GANKING] (I can move from battlefield to battlefield.)\nThe third time I move in a turn, you score 1 point.",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-205.webp"
+    },
+    {
+      "variantNumber": "OGN-205a-298",
+      "collectorNumber": 205,
+      "name": "Yasuo, Windrider",
+      "type": "unit",
+      "energy": 5,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Chaos"
+      ],
+      "tags": [
+        "Yasuo",
+        "Ionia"
+      ],
+      "description": "[Ganking] (I can move from battlefield to battlefield.)\nThe third time I move in a turn, you score 1 point.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/35f7ca6802af48585af55d23cf7675a8922d8535-744x1039.png"
     },
     {
       "variantNumber": "OGN-206",
@@ -3409,6 +3839,19 @@
         "Order"
       ],
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-214.webp"
+    },
+    {
+      "variantNumber": "OGN-214a-298",
+      "collectorNumber": 214,
+      "name": "Order Rune",
+      "type": "rune",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Order"
+      ],
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/0e4904221c3bbbfcfde1734bc414dbe97c67e295-1488x2078.png"
     },
     {
       "variantNumber": "OGN-215",
@@ -3809,6 +4252,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-238.webp"
     },
     {
+      "variantNumber": "OGN-238a-298",
+      "collectorNumber": 238,
+      "name": "Leona, Determined",
+      "type": "unit",
+      "energy": 4,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Order"
+      ],
+      "tags": [
+        "Leona",
+        "Mount Targon"
+      ],
+      "description": "[Shield] (+1 [S] while I'm a defender.)\nWhen I attack, stun an enemy unit here. (It doesn't deal combat damage this turn.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/1ed0250f1d3bbbbde49b3ce1fc2e744e4da64baa-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-239",
       "collectorNumber": 239,
       "name": "Machine Evangel",
@@ -3842,6 +4303,24 @@
       ],
       "description": "[TANK] (I must be assigned combat damage first.)\nI get +1 [Might] for each buffed friendly unit at my battlefield.",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-240.webp"
+    },
+    {
+      "variantNumber": "OGN-240a-298",
+      "collectorNumber": 240,
+      "name": "Sett, Kingpin",
+      "type": "unit",
+      "energy": 4,
+      "power": 1,
+      "might": 5,
+      "colors": [
+        "Order"
+      ],
+      "tags": [
+        "Sett",
+        "Ionia"
+      ],
+      "description": "[Tank] (I must be assigned combat damage first.)\nI get +1 [S] for each buffed friendly unit at my battlefield.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/010bbd89c60c57dc508f6b22201d31bb188f84d6-744x1039.png"
     },
     {
       "variantNumber": "OGN-241",
@@ -3895,6 +4374,25 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-243.webp"
     },
     {
+      "variantNumber": "OGN-243a-298",
+      "collectorNumber": 243,
+      "name": "Darius, Executioner",
+      "type": "unit",
+      "energy": 6,
+      "power": 1,
+      "might": 6,
+      "colors": [
+        "Order"
+      ],
+      "tags": [
+        "Trifarian",
+        "Darius",
+        "Noxus"
+      ],
+      "description": "[Legion] — When you play me, ready me. (Get the effect if you've played another card this turn)\nOther friendly units have +1 [S] here.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/76a697f29d4fc3cd9a5e9a0ce79f229d26bc0c90-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-244",
       "collectorNumber": 244,
       "name": "Divine Judgment",
@@ -3941,6 +4439,24 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-246.webp"
     },
     {
+      "variantNumber": "OGN-246a-298",
+      "collectorNumber": 246,
+      "name": "Viktor, Leader",
+      "type": "unit",
+      "energy": 4,
+      "power": 1,
+      "might": 4,
+      "colors": [
+        "Order"
+      ],
+      "tags": [
+        "Viktor",
+        "Zaun"
+      ],
+      "description": "When another non-Recruit unit you control dies, play a 1 [S] Recruit unit token into your base.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/19b66f8eccd6d6e9d41048f73e44660f1cf77068-744x1039.png"
+    },
+    {
       "variantNumber": "OGN-247",
       "collectorNumber": 247,
       "name": "Kai'Sa, Daughter of the Void",
@@ -3975,6 +4491,23 @@
       ],
       "description": "Do this 6 times: \nDeal 2 to a unit. (You can choose different units.)",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-248.webp"
+    },
+    {
+      "variantNumber": "OGN-249-298",
+      "collectorNumber": 249,
+      "name": "Relentless Storm",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Volibear"
+      ],
+      "description": "When you play a [Mighty] unit, you may exhaust me to channel 1 rune exhausted. (A unit is Mighty while it has 5+ [S].)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/f1842ef373434db3e8109d8959832f9d184866c3-744x1040.png"
     },
     {
       "variantNumber": "OGN-250",
@@ -4672,6 +5205,40 @@
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-298.webp"
     },
     {
+      "variantNumber": "OGN-299-298",
+      "collectorNumber": 299,
+      "name": "Daughter of the Void",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Kai'Sa"
+      ],
+      "description": "[T]: [Reaction] — [Add] [C]. Use only to play spells. (Abilities that add resources can't be reacted to.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/57e13462b8fea9a5cfa1b424d3ad3005f37b00ad-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-299-star-298",
+      "collectorNumber": 299,
+      "name": "Daughter of the Void",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Kai'Sa"
+      ],
+      "description": "[T]: [Reaction] — [Add] [C]. Use only to play spells. (Abilities that add resources can't be reacted to.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/ae8e68af43400f61f7391c0a6ee339fd718a7540-1488x2078.png"
+    },
+    {
       "variantNumber": "OGN-300",
       "collectorNumber": 300,
       "name": "Volibear, Relentless Storm",
@@ -4688,6 +5255,363 @@
       ],
       "description": "When you play a [MIGHTY] unit, you may exhaust me to channel 1 rune exhausted. (A unit is Mighty while it has 5+ [Might]",
       "variantImageUrl": "https://cdn.piltoverarchive.com/cards/OGN-300.webp"
+    },
+    {
+      "variantNumber": "OGN-300-star-298",
+      "collectorNumber": 300,
+      "name": "Relentless Storm",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Volibear"
+      ],
+      "description": "When you play a [Mighty] unit, you may exhaust me to channel 1 rune exhausted. (A unit is Mighty while it has 5+ [S].)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/d5a629ce373a6add09bfacc4b584e509c6332334-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-301-298",
+      "collectorNumber": 301,
+      "name": "Loose Cannon",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Jinx"
+      ],
+      "description": "At start of your Beginning Phase, draw 1 if you have one or fewer cards in your hand.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/8a7dbbed04133926e58843f1d586f51178ef2ebd-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-301-star-298",
+      "collectorNumber": 301,
+      "name": "Loose Cannon",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Jinx"
+      ],
+      "description": "At start of your Beginning Phase, draw 1 if you have one or fewer cards in your hand.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/30bed82f66ce9e4eae260d029d92c9d8cb1588ab-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-302-298",
+      "collectorNumber": 302,
+      "name": "Hand of Noxus",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Darius"
+      ],
+      "description": "[T]: [Reaction], [Legion] — [Add] [1]. (Abilities that add resources can't be reacted to. Get the effect if you've played a card this turn.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/37d43efe09ccfe5d72ce37fdc27599bd5ef736af-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-302-star-298",
+      "collectorNumber": 302,
+      "name": "Hand of Noxus",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Fury"
+      ],
+      "tags": [
+        "Darius"
+      ],
+      "description": "[T]: [Reaction], [Legion] — [Add] [1]. (Abilities that add resources can't be reacted to. Get the effect if you've played a card this turn.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/31f3c975c6f5693f6567b0ebdb66bd4dd92d730b-744x1039.png"
+    },
+    {
+      "variantNumber": "OGN-303-298",
+      "collectorNumber": 303,
+      "name": "Nine-Tailed Fox",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Ahri"
+      ],
+      "description": "When an enemy unit attacks a battlefield you control, give it -1 [S] this turn, to a minimum of 1 [S].",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/dc89c6a2415debd5bf504ed46843f5dcc1d9b815-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-303-star-298",
+      "collectorNumber": 303,
+      "name": "Nine-Tailed Fox",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Ahri"
+      ],
+      "description": "When an enemy unit attacks a battlefield you control, give it -1 [S] this turn, to a minimum of 1 [S].",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/e5fe571a8f09c0a9e76345ec32b446480f54617c-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-304-298",
+      "collectorNumber": 304,
+      "name": "Blind Monk",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Lee Sin"
+      ],
+      "description": "[1], [T]: Buff a friendly unit. (If it doesn't have a buff, it gets a +1 [S] buff.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/fb6316c39ad2a00d65f4b6cc823cbdd61cadda3b-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-304-star-298",
+      "collectorNumber": 304,
+      "name": "Blind Monk",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Lee Sin"
+      ],
+      "description": "[1], [T]: Buff a friendly unit. (If it doesn't have a buff, it gets a +1 [S] buff.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/b4dfd543b1cfcdefba4568fe78146e0d6e46add7-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-305-298",
+      "collectorNumber": 305,
+      "name": "Unforgiven",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Yasuo"
+      ],
+      "description": "[2], [E]: Move a friendly unit to or from its base.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/2c804ec513085702763a9145fac93a8adb6c4783-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-305-star-298",
+      "collectorNumber": 305,
+      "name": "Unforgiven",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Yasuo"
+      ],
+      "description": "[2], [E]: Move a friendly unit to or from its base.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/6a06599a299b15175984c1e38d27a3be21258fbe-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-306-298",
+      "collectorNumber": 306,
+      "name": "Radiant Dawn",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Leona"
+      ],
+      "description": "When you stun one or more enemy units, buff a friendly unit. (If it doesn't have a buff, it gets a +1 [S] buff.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/496d173b74d036a9e28ca1b4383551be0148f13d-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-306-star-298",
+      "collectorNumber": 306,
+      "name": "Radiant Dawn",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Calm"
+      ],
+      "tags": [
+        "Leona"
+      ],
+      "description": "When you stun one or more enemy units, buff a friendly unit. (If it doesn't have a buff, it gets a +1 [S] buff.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/bd526a0f9177aaa9ec575add7d02e72b46520070-744x1039.png"
+    },
+    {
+      "variantNumber": "OGN-307-298",
+      "collectorNumber": 307,
+      "name": "Swift Scout",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Teemo"
+      ],
+      "description": "You may pay [1] to hide a card with [Hidden] instead of [C].\n[1], [T]: Put a Teemo unit you own into your hand from your Champion Zone or the board.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/e2fbf10efaddbabe9241bd2c7b4d059accd1d5a7-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-307-star-298",
+      "collectorNumber": 307,
+      "name": "Swift Scout",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Teemo"
+      ],
+      "description": "You may pay [1] to hide a card with [Hidden] instead of [C].\n[1], [T]: Put a Teemo unit you own into your hand from your Champion Zone or the board.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/4fd9e82cbd96010e2556430970d433022b541a51-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-308-298",
+      "collectorNumber": 308,
+      "name": "Herald of the Arcane",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Viktor"
+      ],
+      "description": "[1], [T]: Play a 1 [S] Recruit unit token.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/a39902058db800a4318f3333dddb8a62a8751d7c-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-308-star-298",
+      "collectorNumber": 308,
+      "name": "Herald of the Arcane",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Mind"
+      ],
+      "tags": [
+        "Viktor"
+      ],
+      "description": "[1], [T]: Play a 1 [S] Recruit unit token.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/e345a5fc347e6a5835f2afa33492058fdbfcb169-744x1039.png"
+    },
+    {
+      "variantNumber": "OGN-309-298",
+      "collectorNumber": 309,
+      "name": "Bounty Hunter",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Miss Fortune"
+      ],
+      "description": "[T]: Give a unit [Ganking] this turn. (It can move from battlefield to battlefield.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/f4b7f334f442d30ccea4743c641760c5533804b4-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-309-star-298",
+      "collectorNumber": 309,
+      "name": "Bounty Hunter",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Miss Fortune"
+      ],
+      "description": "[T]: Give a unit [Ganking] this turn. (It can move from battlefield to battlefield.)",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/37153cce7f58b2fceb28ea9ff91deb0411f849e2-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-310-298",
+      "collectorNumber": 310,
+      "name": "The Boss",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Sett"
+      ],
+      "description": "If a buffed unit you control would die, you may pay [C], exhaust me, and spend its buff to heal it, exhaust it, and recall it instead. (Send it to base. This isn't a move.)\nWhen you conquer, ready me.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/af042a5ee9ca9cca47b6f9736b33aaa599353516-1488x2078.png"
+    },
+    {
+      "variantNumber": "OGN-310-star-298",
+      "collectorNumber": 310,
+      "name": "The Boss",
+      "type": "legend",
+      "energy": null,
+      "power": null,
+      "might": null,
+      "colors": [
+        "Body"
+      ],
+      "tags": [
+        "Sett"
+      ],
+      "description": "If a buffed unit you control would die, you may pay [C], exhaust me, and spend its buff to heal it, exhaust it, and recall it instead. (Send it to base. This isn't a move.)\nWhen you conquer, ready me.",
+      "variantImageUrl": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/6e8efcd343dfd37d9d108243a86c2a5a6412f698-744x1039.png"
     },
     {
       "variantNumber": "OGN-999",
