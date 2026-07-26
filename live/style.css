@@ -307,6 +307,14 @@ html, body {
     z-index: 1 !important;
   }
 
+  .card .card-img-main.card-img-landscape {
+    top: calc(var(--print-bleed, 2mm) + 44mm) !important;
+    left: calc(var(--print-bleed, 2mm) + 31.5mm) !important;
+    width: 88.2mm !important;
+    height: 63.2mm !important;
+    transform: translate(-50%, -50%) rotate(90deg) !important;
+  }
+
   #top-bar,
   .modal,
   .print-btn,
