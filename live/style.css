@@ -295,12 +295,17 @@ html, body {
     left: var(--print-bleed, 2mm);
     width: 63mm;
     height: 88mm;
-    border: 0.3mm dashed var(--print-cutline-color, #000);
+    border: var(--print-cutline-width, 0.3mm) dashed var(--print-cutline-color, #000);
     pointer-events: none;
     z-index: 3;
   }
 
   #card-container.cutlines-corners .card::after {
+    -webkit-mask:
+      linear-gradient(#000 0 0) top left / 8mm 8mm no-repeat,
+      linear-gradient(#000 0 0) top right / 8mm 8mm no-repeat,
+      linear-gradient(#000 0 0) bottom left / 8mm 8mm no-repeat,
+      linear-gradient(#000 0 0) bottom right / 8mm 8mm no-repeat;
     mask:
       linear-gradient(#000 0 0) top left / 8mm 8mm no-repeat,
       linear-gradient(#000 0 0) top right / 8mm 8mm no-repeat,
