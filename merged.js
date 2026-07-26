@@ -27,6 +27,8 @@ const printSettingsModal = document.getElementById('print-settings-modal');
 const printSettingsForm = document.getElementById('print-settings-form');
 const printBleed = document.getElementById('print-bleed');
 const printSpacing = document.getElementById('print-spacing');
+const printCutlines = document.getElementById('print-cutlines');
+const printCutlineColor = document.getElementById('print-cutline-color');
 
 function closePrintSettings() {
   printSettingsModal.classList.add('hidden');
@@ -54,6 +56,9 @@ printSettingsForm.addEventListener('submit', event => {
     rootStyle.setProperty('--print-spacing', `${spacing}mm`);
     rootStyle.setProperty('--print-card-width', `${63 + (bleed * 2)}mm`);
     rootStyle.setProperty('--print-card-height', `${88 + (bleed * 2)}mm`);
+    rootStyle.setProperty('--print-cutline-color', printCutlineColor.value);
+    container.classList.toggle('cutlines-full', printCutlines.value === 'full');
+    container.classList.toggle('cutlines-corners', printCutlines.value === 'corners');
 
     closePrintSettings();
     const topBar = document.getElementById('top-bar');
