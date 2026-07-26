@@ -6,13 +6,17 @@
   "scripts": {
     "start": "python3 -m http.server 8000 --directory .",
     "validate": "node scripts/validate-cards.mjs",
-    "build": "node scripts/build-cards.mjs",
+    "build": "node scripts/build-cards.mjs && node scripts/build-deck-code.mjs",
     "prebuild": "node scripts/validate-cards.mjs",
     "import": "node scripts/import-cards.mjs",
-    "test": "node --test scripts/import-cards.test.mjs"
+    "test": "node --test scripts/*.test.mjs"
   },
   "devDependencies": {
     "ajv": "^8.17.1",
-    "ajv-formats": "^3.0.1"
+    "ajv-formats": "^3.0.1",
+    "esbuild": "^0.28.1"
+  },
+  "dependencies": {
+    "@piltoverarchive/riftbound-deck-codes": "^1.4.0"
   }
 }

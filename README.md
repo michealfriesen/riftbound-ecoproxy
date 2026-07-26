@@ -1,6 +1,6 @@
 # Riftbound Eco Proxy
 
-Riftbound Eco Proxy is a browser-based tool for finding Riftbound cards, building a proxy list, reviewing it, and printing it. It is a static HTML, CSS, and JavaScript project.
+Riftbound Eco Proxy is a browser-based tool for finding Riftbound cards, importing deck codes, building a proxy list, reviewing it, and printing it. It is a static HTML, CSS, and JavaScript project.
 
 Card data is stored as version-controlled JSON files under `data/sets/`, validated against a JSON Schema, and combined into a single `data/cards.json` artifact that the browser loads via `fetch()`.
 
@@ -50,6 +50,9 @@ data/
   sets/
     OGN.json            ← Origins
     OGS.json            ← Origins – Proving Grounds
+    SFD.json            ← Spiritforged
+    UNL.json            ← Unleashed
+    VEN.json            ← Vendetta
     <SET>.json          ← Future sets go here
 scripts/
   validate-cards.mjs    ← Validates all set files + checks duplicate variantNumbers
@@ -57,6 +60,14 @@ scripts/
   import-cards.mjs      ← Imports card data from Hugging Face (Wysme/riftbound-cards)
   import-cards.test.mjs ← Unit tests for the import transformations
 ```
+
+## Importing deck codes
+
+Use **Import List** to paste either a Riftbound deck code or a whitespace-separated
+card list. Deck codes are decoded with
+[`@piltoverarchive/riftbound-deck-codes`](https://github.com/Piltover-Archive/RiftboundDeckCodes);
+both main-deck and sideboard cards are added to the proxy list. The build creates
+`deck-code.bundle.js` for both deployments so decoding works without a runtime CDN.
 
 ### JSON Schema vs. card data
 

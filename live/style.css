@@ -108,6 +108,10 @@ html, body {
 .import-instructions {
   margin: 0.5em 0;
   font-style: italic;
+}
+.import-error {
+  color: #b00020;
+  margin: 0.5em 0;
   color: #555;
 }
 #import-area {
