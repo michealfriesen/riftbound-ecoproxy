@@ -142,8 +142,9 @@ function applyProxyView() {
   let allCards          = [];             // flat array – used for search
   let cardsByVariant    = new Map();      // Map<variantNumber, card> – used for rendering
   let variantsByDeckCode = new Map();     // Map<deck card code, variantNumber>
+  let catalogError      = null;
 
-  const catalogReady = fetch(CARDS_URL)
+  const catalogReady = fetch(CARDS_URL, { cache: 'no-store' })
     .then(r => {
       if (!r.ok) throw new Error(`HTTP ${r.status} loading ${CARDS_URL}`);
       return r.json();
@@ -152,8 +153,13 @@ function applyProxyView() {
       allCards = Array.isArray(data) ? data : [];
       cardsByVariant = new Map(allCards.map(c => [c.variantNumber, c]));
       variantsByDeckCode = window.RiftboundDeckCodes.buildCatalogDeckCodeMap(allCards);
+      console.info('Card catalog loaded.', {
+        cards: allCards.length,
+        deckCodeMappings: variantsByDeckCode.size,
+      });
     })
     .catch(err => {
+      catalogError = err;
       console.error('Failed to load card catalog:', err);
       const msg = document.createElement('p');
       msg.textContent = 'Card catalog could not be loaded. Check the console for details.';
@@ -439,19 +445,37 @@ function applyProxyView() {
     overlay.querySelector('#import-ok').onclick = async () => {
       error.classList.add('hidden');
       try {
-        console.info('Deck import started.', { inputLength: area.value.trim().length });
+        const importText = area.value.trim();
+        console.info('Deck import started.', {
+          inputLength: importText.length,
+          inputPrefix: importText.slice(0, 12),
+          catalogLoaded: allCards.length > 0,
+          decoderAvailable: typeof window.RiftboundDeckCodes?.getDeckFromCode === 'function',
+        });
         await catalogReady;
+        if (catalogError) throw catalogError;
         const imported = window.RiftboundDeckCodes.parseImportText(
-          area.value,
+          importText,
           window.RiftboundDeckCodes.getDeckFromCode
         );
         window.RiftboundDeckCodes.validateImportSize(imported);
+        console.info('Deck import decoded.', {
+          uniqueCards: imported.length,
+          totalCards: imported.reduce((total, card) => total + card.count, 0),
+          cards: imported,
+        });
         const resolved = imported.map(({ cardCode, count }) => ({
           count,
           variantNumber: variantsByDeckCode.get(cardCode) || cardsByVariant.get(cardCode)?.variantNumber,
           cardCode,
         }));
         const missing = resolved.filter(card => !card.variantNumber).map(card => card.cardCode);
+        console.info('Deck import catalog resolution completed.', {
+          catalogCards: allCards.length,
+          deckCodeMappings: variantsByDeckCode.size,
+          resolvedCards: resolved,
+          missingCards: missing,
+        });
         if (missing.length) {
           throw new Error(`Cards not available in this catalog: ${missing.join(', ')}`);
         }
@@ -461,17 +485,27 @@ function applyProxyView() {
           window.cardCounts = {};
           updateCount();
         }
+        const cardsBeforeImport = container.querySelectorAll('.card').length;
         resolved.forEach(({ variantNumber, count }) => {
           for (let i = 0; i < count; i++) window.addCard(variantNumber);
         });
+        const cardsAfterImport = container.querySelectorAll('.card').length;
         console.info('Deck import succeeded.', {
           uniqueCards: resolved.length,
           totalCards: resolved.reduce((total, card) => total + card.count, 0),
+          cardsBeforeImport,
+          cardsAfterImport,
+          cardsAdded: cardsAfterImport - cardsBeforeImport,
         });
         area.value = '';
         overlay.remove();
       } catch (err) {
-        console.error('Deck import failed:', err);
+        console.error('Deck import failed.', {
+          error: err,
+          catalogCards: allCards.length,
+          deckCodeMappings: variantsByDeckCode.size,
+          renderedCards: container.querySelectorAll('.card').length,
+        });
         const message = err instanceof Error ? err.message : String(err);
         error.textContent = `Import failed: ${message}`;
         error.classList.remove('hidden');
