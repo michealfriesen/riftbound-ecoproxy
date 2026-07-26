@@ -4,6 +4,7 @@
   "description": "Riftbound Eco Proxy – static card proxy generator",
   "type": "module",
   "scripts": {
+    "start": "python3 -m http.server 8000 --directory .",
     "validate": "node scripts/validate-cards.mjs",
     "build": "node scripts/build-cards.mjs",
     "prebuild": "node scripts/validate-cards.mjs",
