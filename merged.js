@@ -141,6 +141,7 @@ function applyProxyView() {
                             battlefield:'battlefield', legend:'legend', rune:'rune' };
   let allCards          = [];             // flat array – used for search
   let cardsByVariant    = new Map();      // Map<variantNumber, card> – used for rendering
+  let variantsByDeckCode = new Map();     // Map<deck card code, variantNumber>
 
   const catalogReady = fetch(CARDS_URL)
     .then(r => {
@@ -150,6 +151,7 @@ function applyProxyView() {
     .then(data => {
       allCards = Array.isArray(data) ? data : [];
       cardsByVariant = new Map(allCards.map(c => [c.variantNumber, c]));
+      variantsByDeckCode = window.RiftboundDeckCodes.buildCatalogDeckCodeMap(allCards);
     })
     .catch(err => {
       console.error('Failed to load card catalog:', err);
@@ -416,8 +418,9 @@ function applyProxyView() {
       <div class="modal-content import-content">
         <button id="close-import" class="modal-close">×</button>
         <h2>Import List</h2>
-        <p class="import-instructions">Paste Table Top Simulator code here</p>
-        <textarea id="import-area" placeholder="Import code format: SET-###-Variant#"></textarea>
+        <p class="import-instructions">Paste a Riftbound deck code or Table Top Simulator card list here.</p>
+        <textarea id="import-area" placeholder="Deck code or card list"></textarea>
+        <p id="import-error" class="import-error hidden" role="alert"></p>
         <label class="import-clear">
           <input type="checkbox" id="import-clear" />
           Clear existing cards before import
@@ -429,21 +432,42 @@ function applyProxyView() {
       </div>`;
     document.body.appendChild(overlay);
     const area = overlay.querySelector('#import-area');
+    const error = overlay.querySelector('#import-error');
     const clearCheckbox = overlay.querySelector('#import-clear');
     overlay.querySelector('#close-import').onclick = () => overlay.remove();
     overlay.querySelector('#import-cancel').onclick = () => overlay.remove();
-    overlay.querySelector('#import-ok').onclick = () => {
-      if (clearCheckbox.checked) {
-        container.innerHTML = '';
-        window.cardCounts = {};
-        updateCount();
+    overlay.querySelector('#import-ok').onclick = async () => {
+      error.classList.add('hidden');
+      try {
+        await catalogReady;
+        const imported = window.RiftboundDeckCodes.parseImportText(
+          area.value,
+          window.RiftboundDeckCodes.getDeckFromCode
+        );
+        const resolved = imported.map(({ cardCode, count }) => ({
+          count,
+          variantNumber: variantsByDeckCode.get(cardCode) || cardsByVariant.get(cardCode)?.variantNumber,
+          cardCode,
+        }));
+        const missing = resolved.filter(card => !card.variantNumber).map(card => card.cardCode);
+        if (missing.length) {
+          throw new Error(`Cards not found: ${missing.join(', ')}`);
+        }
+
+        if (clearCheckbox.checked) {
+          container.innerHTML = '';
+          window.cardCounts = {};
+          updateCount();
+        }
+        resolved.forEach(({ variantNumber, count }) => {
+          for (let i = 0; i < count; i++) window.addCard(variantNumber);
+        });
+        area.value = '';
+        overlay.remove();
+      } catch (err) {
+        error.textContent = `Import failed: ${err.message}`;
+        error.classList.remove('hidden');
       }
-      area.value.trim().split(/\s+/).forEach(tok => {
-        const p = tok.split('-');
-        if (p.length>=2) window.addCard(p[0]+'-'+p[1]);
-      });
-      area.value = '';
-      overlay.remove();
     };
   });
 
