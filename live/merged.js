@@ -28,6 +28,7 @@ const printSettingsForm = document.getElementById('print-settings-form');
 const printBleed = document.getElementById('print-bleed');
 const printSpacing = document.getElementById('print-spacing');
 const printCutlines = document.getElementById('print-cutlines');
+const printCutlineLength = document.getElementById('print-cutline-length');
 const printCutlineColor = document.getElementById('print-cutline-color');
 
 function closePrintSettings() {
@@ -56,6 +57,7 @@ printSettingsForm.addEventListener('submit', event => {
     rootStyle.setProperty('--print-spacing', `${spacing}mm`);
     rootStyle.setProperty('--print-card-width', `${63 + (bleed * 2)}mm`);
     rootStyle.setProperty('--print-card-height', `${88 + (bleed * 2)}mm`);
+    rootStyle.setProperty('--print-cutline-length', `${printCutlineLength.valueAsNumber}mm`);
     rootStyle.setProperty('--print-cutline-color', printCutlineColor.value);
     container.classList.toggle('cutlines-full', printCutlines.value === 'full');
     container.classList.toggle('cutlines-corners', printCutlines.value === 'corners');
